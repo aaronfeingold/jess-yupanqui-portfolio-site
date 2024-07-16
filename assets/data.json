@@ -1,4 +1,5 @@
 {
+  "canonicalLink": "http://www.jess-yupanqui.com",
   "logoName": "Jess Yupanqui",
   "heading": "Solidarity economy entrepreneur, writer, community organizer",
   "socialMediaLinks": [
@@ -14,5 +15,16 @@
       "href": "https://www.amazon.com/author/jessyupanqui",
       "text": "Read My Books Available On Amazon"
     }
+  ],
+  "metaData": [
+    { "property": "og:site_name", "content": "Jess Yupanqui" },
+    { "property": "og:title", "content": "Jess Yupanqui" },
+    { "property": "og:url", "content": "http://www.jess-yupanqui.com" },
+    { "property": "og:type", "content": "website" },
+    { "itemprop": "name", "content": "Jess Yupanqui" },
+    { "itemprop": "url", "content": "http://www.jess-yupanqui.com" },
+    { "name": "twitter:title", "content": "Jess Yupanqui" },
+    { "name": "twitter:url", "content": "http://www.jess-yupanqui.com" },
+    { "name": "twitter:card", "content": "summary" }
   ]
 }
