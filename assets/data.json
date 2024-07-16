@@ -1,0 +1,35 @@
+{
+  "canonicalLink": "http://www.jess-yupanqui.com",
+  "logoName": "Jess Yupanqui",
+  "heading": "Solidarity economy entrepreneur, writer, community organizer",
+  "socialMediaLinks": [
+    { "linkedIn": "https://www.linkedin.com/in/jess-yupanqui/" },
+    { "twitter": "https://twitter.com/jessyupanqui" }
+  ],
+  "variousHyperlinks": [
+    {
+      "href": "https://jessyupanqui.medium.com/",
+      "text": "JessTheVlogger"
+    },
+    {
+      "href": "https://www.amazon.com/author/jessyupanqui",
+      "text": "Read My Books Available On Amazon"
+    }
+  ],
+  "profileContent": [
+    "— Building community-owned models of land, housing and real estate at The Guild, as a means for self determination for Black and other communities of color, and poor and working class communities",
+    "— Building reparative capital and funding models with Groundcover, to scale community ownership across Georgia and the South",
+    "— Audio exploration of our journey out of a \"business as usual economy\" towards justice, equity and liberation with the Road to Repair podcast"
+  ],
+  "metaData": [
+    { "property": "og:site_name", "content": "Jess Yupanqui" },
+    { "property": "og:title", "content": "Jess Yupanqui" },
+    { "property": "og:url", "content": "http://www.jess-yupanqui.com" },
+    { "property": "og:type", "content": "website" },
+    { "itemprop": "name", "content": "Jess Yupanqui" },
+    { "itemprop": "url", "content": "http://www.jess-yupanqui.com" },
+    { "name": "twitter:title", "content": "Jess Yupanqui" },
+    { "name": "twitter:url", "content": "http://www.jess-yupanqui.com" },
+    { "name": "twitter:card", "content": "summary" }
+  ]
+}
