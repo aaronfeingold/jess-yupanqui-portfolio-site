@@ -1,0 +1,18 @@
+{
+  "logoName": "Jess Yupanqui",
+  "heading": "Solidarity economy entrepreneur, writer, community organizer",
+  "socialMediaLinks": [
+    { "linkedIn": "https://www.linkedin.com/in/jess-yupanqui/" },
+    { "twitter": "https://twitter.com/jessyupanqui" }
+  ],
+  "variousHyperlinks": [
+    {
+      "href": "https://jessyupanqui.medium.com/",
+      "text": "JessTheVlogger"
+    },
+    {
+      "href": "https://www.amazon.com/author/jessyupanqui",
+      "text": "Read My Books Available On Amazon"
+    }
+  ]
+}
