@@ -22,5 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
         metaElement.content = meta.content;
         document.head.appendChild(metaElement);
       });
+
+      const profileContent = document.getElementById("profile-content");
+
+      profileData.profileContent.forEach((line) => {
+        const li = document.createElement("li");
+        li.textContent = line;
+        profileContent.appendChild(li);
+      });
     });
 });
