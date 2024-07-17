@@ -1,35 +1,52 @@
 {
   "canonicalLink": "http://www.jess-yupanqui.com",
-  "logoName": "Jess Yupanqui",
-  "heading": "Solidarity economy entrepreneur, writer, community organizer",
+  "profileName": "Jess Yupanqui Feingold ",
+  "emailAddress": "feingold.jessica@gmail.com",
   "socialMediaLinks": [
-    { "linkedIn": "https://www.linkedin.com/in/jess-yupanqui/" },
-    { "twitter": "https://twitter.com/jessyupanqui" }
+    {
+      "name": "linkedIn",
+      "href": "https://www.linkedin.com/in/jess-yupanqui-feingold-7a5a4a16/"
+    }
   ],
   "variousHyperlinks": [
     {
-      "href": "https://jessyupanqui.medium.com/",
-      "text": "JessTheVlogger"
+      "href": "https://open.spotify.com/episode/4jZ8yxuAjtfpZ2rm902mAF",
+      "text": "Political Hope (Podcast Episode 101): Radical Pragmatism with Jess Yupanqui Feingold (spotify.com)"
     },
     {
-      "href": "https://www.amazon.com/author/jessyupanqui",
-      "text": "Read My Books Available On Amazon"
+      "href": "https://www.youtube.com/watch?v=6XsboAtUw1k",
+      "text": "Breaking Silos to Enact Change (youtube.com)"
+    },
+    {
+      "href": "https://podcasts.apple.com/us/podcast/the-playfull-podcast-with-kristine-michie-bringing-fun/id1676838213",
+      "text": "The PlayFull Podcast with Kristine Michie (podcasts.apple.com)"
+    },
+    {
+      "href": "https://www.innerwealthpodcast.com/1918080/11829474",
+      "text": "Inner Wealth: Rethinking Philanthropy (innerwealthpodcast.com)"
+    },
+    {
+      "href": "https://nonprofitquarterly.org/we-are-powerful-because-we-are-many/",
+      "text": "We Are Powerful Because We Are Many (nonprofitquarterly.org)"
     }
   ],
+  "profileSummary": "executive leader, impact investor, and creative entrepreneur",
   "profileContent": [
-    "— Building community-owned models of land, housing and real estate at The Guild, as a means for self determination for Black and other communities of color, and poor and working class communities",
-    "— Building reparative capital and funding models with Groundcover, to scale community ownership across Georgia and the South",
-    "— Audio exploration of our journey out of a \"business as usual economy\" towards justice, equity and liberation with the Road to Repair podcast"
+    "She currently serves as Co-CEO at Common Future, an organization which invests in Black and indigenous communities so that racial economic inequality becomes a thing of the past. Her expertise lies in brand strategy and positioning, grant and capital raising, storytelling and influence—all in service to building a more equitable economy. ",
+    "With A Space Unfolds, she and her wife are building a design practice that centers healthy materials, sustainable sourcing, and non-extractive labor practices in building house and home.",
+    "On her Substack, she brings her expertise in exploring what regenerating the climate and repairing inequity means for everyday people, including the actions we can all take towards a more equitable economic future.",
+    "Jess is a former columnist at Forbes and has spoken at convening of the Skoll World Forum, the Aspen Institute, Nonprofit Quarterly, and Stanford Social Innovation Review."
   ],
   "metaData": [
-    { "property": "og:site_name", "content": "Jess Yupanqui" },
-    { "property": "og:title", "content": "Jess Yupanqui" },
+    { "property": "og:site_name", "content": "Jess Yupanqui Feingold " },
+    { "property": "og:title", "content": "Jess Yupanqui Feingold " },
     { "property": "og:url", "content": "http://www.jess-yupanqui.com" },
     { "property": "og:type", "content": "website" },
-    { "itemprop": "name", "content": "Jess Yupanqui" },
+    { "itemprop": "name", "content": "Jess Yupanqui Feingold " },
     { "itemprop": "url", "content": "http://www.jess-yupanqui.com" },
-    { "name": "twitter:title", "content": "Jess Yupanqui" },
+    { "name": "twitter:title", "content": "Jess Yupanqui Feingold " },
     { "name": "twitter:url", "content": "http://www.jess-yupanqui.com" },
     { "name": "twitter:card", "content": "summary" }
-  ]
+  ],
+  "underConstruction": false
 }
