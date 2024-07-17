@@ -87,6 +87,11 @@ ul li::before {
     color: white; /* Set bullet color */
 }
 
+/* Change color on hover */
+#profile-links-list li a:hover {
+    color: #ffd700; /* Example: Gold color on hover */
+}
+
 .social-media {
     display: flex;
     justify-content: center;
