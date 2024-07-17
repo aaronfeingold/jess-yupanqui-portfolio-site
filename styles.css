@@ -13,17 +13,21 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding: 20px; /* Add some padding for the entire container */
+    min-height: 100vh; /* Change to min-height */
+    padding: 40px 20px; /* Add some padding for the entire container */
+    padding-top: 40px; /* Added padding to the top */
     max-width: 1000px; /* Set max-width for larger screens */
     margin: 0 auto; /* Center the container */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding-bottom: 40px; /* Added padding to the bottom */
 }
 
-.profile-section {
-    width: 95%; /* Set width to 95% of the profile-container */
-    padding: 0 20px; /* Add left and right padding to prevent content from touching edges */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+.profile-image img {
+    border-radius: 50%;
+    width: 95%; /* Make image as wide as the profile-section */
+    max-width: 800px; /* Ensure it does not exceed a reasonable size */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Added margin to the top of the image */
 }
 
 #profile-header {
@@ -32,15 +36,16 @@ body {
     margin: 20px 0;  /* Add some margin */
 }
 
-.profile-image img {
-    border-radius: 50%;
-    width: 200px; /* Adjust size as needed */
-    height: 200px; /* Adjust size as needed */
+.profile-section {
+    width: 80%; /* Set width to 95% of the profile-container */
+    padding: 0 20px; /* Add left and right padding to prevent content from touching edges */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .profile-content {
     max-width: 600px;
     margin-top: 20px;
+    padding-left: 20px; /* Add padding to the left to indent the bullet points */
 }
 
 h1 {
@@ -62,7 +67,7 @@ p {
 
 ul {
     list-style-type: none;
-    padding: 0;
+    padding-left: 20px; /* Add padding to create space for custom bullet points */
     font-size: 1em;
     text-align: left;
     margin: 0 0 20px;
@@ -70,12 +75,23 @@ ul {
 
 ul li {
     margin-bottom: 10px;
+    padding-left: 10px; /* Indent bullet points */
+    position: relative;
+}
+
+ul li::before {
+    content: '•'; /* Use custom bullet point */
+    position: absolute;
+    left: -10px; /* Position bullet point relative to the text */
+    font-size: 1.2em; /* Adjust size if needed */
+    color: white; /* Set bullet color */
 }
 
 .social-media {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px; /* Add bottom margin to ensure it doesn't touch the viewport edge */
 }
 
 .social-media a {
@@ -94,6 +110,28 @@ ul li {
     margin-left: 5px;
 }
 
+.toast {
+    visibility: hidden;
+    min-width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Responsive styles for mobile */
 @media (max-width: 600px) {
     #profile-header {
@@ -102,6 +140,8 @@ ul li {
 
     .profile-container {
         padding: 10px; /* Adjust padding for mobile */
+        padding-top: 30px; /* Ensure top padding for mobile */
+        padding-bottom: 30px; /* Ensure top padding for mobile */
     }
 
     .profile-section {
