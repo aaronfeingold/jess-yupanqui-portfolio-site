@@ -1,18 +1,26 @@
+/* Base styles */
 body {
     margin: 0;
     padding: 0;
     font-family: 'futura', sans-serif;
     background-color: #fb6c76;
     color: white;
-    text-align: center;
+    text-align: left;
 }
 
-.container {
+.profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 20px; /* Add some padding for the entire container */
+}
+
+#profile-header {
+    font-size: 2.5em;  /* Default font size */
+    text-align: center;  /* Center the text */
+    margin: 20px 0;  /* Add some margin */
 }
 
 .profile-image img {
@@ -21,14 +29,19 @@ body {
     height: 200px; /* Adjust size as needed */
 }
 
-.content {
+.profile-content {
     max-width: 600px;
     margin-top: 20px;
+}
+
+.profile-section {
+    padding: 0 20px; /* Add left and right padding to prevent content from touching edges */
 }
 
 h1 {
     font-size: 2.5em;
     margin: 0;
+    display: inline-block;
 }
 
 h2 {
@@ -74,4 +87,32 @@ ul li {
     width: 24px; /* Adjust size as needed */
     height: 24px; /* Adjust size as needed */
     margin-left: 5px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 600px) {
+    #profile-header {
+        font-size: 1.5em;  /* Smaller font size for mobile */
+    }
+
+    .profile-container {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .profile-section {
+        padding: 0 10px; /* Reduce padding for smaller screens */
+    }
+
+    .profile-image img {
+        width: 150px; /* Adjust size for mobile */
+        height: 150px; /* Adjust size for mobile */
+    }
+
+    h2 {
+        font-size: 1em; /* Adjust font size for mobile */
+    }
+
+    p, ul, .social-media a {
+        font-size: 0.9em; /* Adjust font size for mobile */
+    }
 }
