@@ -15,6 +15,15 @@ body {
     justify-content: center;
     height: 100vh;
     padding: 20px; /* Add some padding for the entire container */
+    max-width: 1000px; /* Set max-width for larger screens */
+    margin: 0 auto; /* Center the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.profile-section {
+    width: 95%; /* Set width to 95% of the profile-container */
+    padding: 0 20px; /* Add left and right padding to prevent content from touching edges */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 #profile-header {
@@ -32,10 +41,6 @@ body {
 .profile-content {
     max-width: 600px;
     margin-top: 20px;
-}
-
-.profile-section {
-    padding: 0 20px; /* Add left and right padding to prevent content from touching edges */
 }
 
 h1 {
