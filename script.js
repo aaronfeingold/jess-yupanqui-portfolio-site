@@ -1,7 +1,24 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  await fetch("assets/data.json")
-    .then((response) => response.json())
-    .then((data) => {
+    const loader = document.getElementById("loader");
+    const profileContentContainer = document.getElementById(
+      "profile-content-container"
+    );
+    const profileImage = document.querySelector(".profile-image img");
+    // Function to create a delay
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    try {
+      loader.style.display = "block"; // Show the loader
+      profileImage.style.opacity = "0.5"; // Dim the profile image
+
+      // Start both the data fetch and the minimum delay
+      const fetchData = fetch("assets/data.json").then((response) =>
+        response.json()
+      );
+      const minDelay = delay(1500); // 1.5 seconds delay
+
+      const [data] = await Promise.all([fetchData, minDelay]);
+
       handleMetaData(data);
       updateProfileHeaderAndSummary(data);
       appendUnderConstructionMessage(data);
@@ -9,7 +26,14 @@ document.addEventListener("DOMContentLoaded", async function () {
       updateProfileLinks(data);
       updateSocialMediaLinks(data);
       setupContactLink(data.emailAddress);
-    });
+
+      loader.style.display = "none"; // Hide the loader
+      profileImage.style.opacity = "1"; // Restore the profile image opacity
+      profileContentContainer.style.display = "block"; // Show the profile content
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      loader.style.display = "none"; // Hide the loader even if there's an error
+    }
 
   function handleMetaData(data) {
     document.getElementById("page-title").textContent = data.logoName;
