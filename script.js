@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("assets/data.json")
+document.addEventListener("DOMContentLoaded", async function () {
+  await fetch("assets/data.json")
     .then((response) => response.json())
     .then((data) => {
       handleMetaData(data);
@@ -89,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const socialMediaLinks = data.socialMediaLinks;
     const socialMediaContainer = document.querySelector(".social-media");
     // Create and append LinkedIn link
+    fetch("assets/iconMap.json")
+      .then((response) => response.json())
+      .then((data) => {});
     for (socialLink of socialMediaLinks) {
       const socialLinkElement = createSocialLink(
         socialLink.href,
