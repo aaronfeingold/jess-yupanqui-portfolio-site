@@ -281,4 +281,12 @@ ul li::before {
     p, ul, .social-media a {
         font-size: 0.9em; /* Adjust font size for mobile */
     }
+
+    .nav-link {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
 }
