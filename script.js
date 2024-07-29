@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const fetchData = fetch("assets/data.json").then((response) =>
         response.json()
       );
-      const minDelay = delay(1500); // 1.5 seconds delay
+      const minDelay = delay(500); // 0.5 seconds delay
 
       const [data] = await Promise.all([fetchData, minDelay]);
 
