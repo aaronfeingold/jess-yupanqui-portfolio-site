@@ -1,39 +1,113 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const loader = document.getElementById("loader");
-    const profileContentContainer = document.getElementById(
-      "profile-content-container"
+  const spinner = document.getElementById("spinner");
+  const links = document.querySelectorAll("a, button");
+  const profileContentContainer = document.getElementById("content-section");
+  const profileImage = document.querySelector(".hero-image img");
+  let profileHeader = document.getElementById("hero-name");
+  // Function to create a delay
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  try {
+    handleNavBar();
+    spinner.style.display = "block"; // Show the spinner
+    profileImage.style.opacity = "0.5"; // Dim the profile image
+    // Transition to profile name after a short delay
+
+    const observer = new MutationObserver(function () {
+      if (spinner.style.display === "block") {
+        links.forEach((link) => link.setAttribute("disabled", "true"));
+      } else {
+        links.forEach((link) => link.removeAttribute("disabled"));
+      }
+    });
+
+    observer.observe(spinner, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
+    // Start both the data fetch and the minimum delay
+    const fetchData = fetch("assets/data.json").then((response) =>
+      response.json()
     );
-    const profileImage = document.querySelector(".profile-image img");
-    // Function to create a delay
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const minDelay = delay(2250); // 2.25 seconds delay
 
-    try {
-      loader.style.display = "block"; // Show the loader
-      profileImage.style.opacity = "0.5"; // Dim the profile image
+    const [data] = await Promise.all([fetchData, minDelay]);
+    // Fade out "Content Loading..."
+    profileHeader.classList.remove("visible");
+    // Wait for the fade-out transition to complete
+    await delay(1000); // Adjust the delay to match the CSS transition duration
+    // Change the text to profile name and fade it in
+    profileHeader.innerText = data.profileName;
+    profileHeader.classList.add("visible");
+    // Disable links and buttons when spinner is visible
+    handleMetaData(data);
+    handleProfileImagePlaceholder();
+    updateProfileSummary(data);
+    appendUnderConstructionMessage(data);
+    updateProfileContent(data);
+    updateProfileLinks(data);
+    updateSocialMediaLinks(data);
+    setupContactLink(data.emailAddress);
 
-      // Start both the data fetch and the minimum delay
-      const fetchData = fetch("assets/data.json").then((response) =>
-        response.json()
-      );
-      const minDelay = delay(500); // 0.5 seconds delay
+    spinner.style.display = "none"; // Hide the spinner
+    profileImage.style.opacity = "1"; // Restore the profile image opacity
+    profileContentContainer.style.display = "block"; // Show the profile content
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    spinner.style.display = "none"; // Hide the spinner even if there's an error
+  }
 
-      const [data] = await Promise.all([fetchData, minDelay]);
+  function handleNavBar() {
+    const navBar = document.getElementById("nav-bar");
+    const hamburgerMenu = document.getElementById("hamburger-menu");
+    const menuModal = document.getElementById("menu-modal");
 
-      handleMetaData(data);
-      updateProfileHeaderAndSummary(data);
-      appendUnderConstructionMessage(data);
-      updateProfileContent(data);
-      updateProfileLinks(data);
-      updateSocialMediaLinks(data);
-      setupContactLink(data.emailAddress);
+    // Scroll effect for nav bar
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        navBar.classList.add("transparent");
+      } else {
+        navBar.classList.remove("transparent");
+      }
+    });
 
-      loader.style.display = "none"; // Hide the loader
-      profileImage.style.opacity = "1"; // Restore the profile image opacity
-      profileContentContainer.style.display = "block"; // Show the profile content
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      loader.style.display = "none"; // Hide the loader even if there's an error
-    }
+    // Hamburger menu click event
+    hamburgerMenu.addEventListener("click", function () {
+      if (
+        menuModal.style.display === "none" ||
+        menuModal.style.display === ""
+      ) {
+        menuModal.style.display = "flex";
+        menuModal.style.flexDirection = "column";
+      } else {
+        menuModal.style.display = "none";
+      }
+    });
+
+    // Close modal on click outside
+    window.addEventListener("click", function (event) {
+      if (event.target === menuModal) {
+        menuModal.style.display = "none";
+      }
+    });
+
+    // Close modal on link click
+    menuModal.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", function () {
+        menuModal.style.display = "none";
+      });
+    });
+
+    // Smooth scroll
+    navBar.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+  }
 
   function handleMetaData(data) {
     document.getElementById("page-title").textContent = data.logoName;
@@ -55,9 +129,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  function updateProfileHeaderAndSummary(data) {
-    document.getElementById("profile-header").innerText = data.profileName;
-    document.getElementById("profile-summary").innerText = data.profileSummary;
+  function handleProfileImagePlaceholder() {
+    const profileImage = document.getElementById("hero-image");
+    const placeholder = document.getElementById("image-placeholder");
+    if (!profileImage || !placeholder) {
+      console.error("Profile image or placeholder element not found.");
+      return;
+    }
+
+    // Ensure the image is hidden initially
+    profileImage.style.display = "none";
+    profileImage.onload = function () {
+      placeholder.style.display = "none";
+      profileImage.style.display = "block";
+    };
+
+    // Check if the image is already loaded (for cached images)
+    if (profileImage.complete) {
+      profileImage.onload();
+    }
+  }
+
+  function updateProfileSummary(data) {
+    let profileSummary = document.getElementById("hero-summary");
+
+    // Trigger the transition by adding the 'visible' class
+    setTimeout(() => {
+      profileSummary.innerText = data.profileSummary;
+      profileSummary.classList.add("visible");
+    }, 500);
   }
 
   function appendUnderConstructionMessage(data) {
@@ -65,7 +165,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const message = document.createElement("p");
       message.textContent =
         "Thanks for visiting! This site is under construction at the moment, but you can find some of my current work here in the meantime:";
-      const profileSummary = document.getElementById("profile-summary");
+      const profileSummary = document.getElementById("hero-summary");
       profileSummary.parentNode.insertBefore(
         message,
         profileSummary.nextSibling
@@ -74,7 +174,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function updateProfileContent(data) {
-    const profileContent = document.getElementById("profile-content");
+    const profileContent = document.getElementById("about-content");
     data.profileContent.forEach((line) => {
       const li = document.createElement("li");
       li.textContent = line;
@@ -83,7 +183,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function updateProfileLinks(data) {
-    const profileLinksSection = document.getElementById("profile-links-list");
+    const profileLinksSection = document.getElementById("links-list");
     if (Array.isArray(data.variousHyperlinks)) {
       data.variousHyperlinks.forEach((link) => {
         const listItem = document.createElement("li");
@@ -111,7 +211,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   function updateSocialMediaLinks(data) {
     const socialMediaLinks = data.socialMediaLinks;
-    const socialMediaContainer = document.querySelector(".social-media");
+    const socialMediaContainer = document.querySelector(".contact-section");
     // Create and append LinkedIn link
     fetch("assets/iconMap.json")
       .then((response) => response.json())
