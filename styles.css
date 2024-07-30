@@ -194,7 +194,11 @@ body {
     max-width: 600px;
     padding: 40px 10px; /* Add some padding for the entire container */
     padding-left: 20px; /* Add padding to the left to indent the bullet points */
-    min-height: 100vh; /* Change to min-height */
+    min-height: auto; /* Override to ensure it only takes up as much space as needed */
+}
+
+#links-section {
+    min-height: auto; /* Override to ensure it only takes up as much space as needed */
 }
 
 .content-header h3 {
