@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const profileContentContainer = document.getElementById("content-section");
   const profileImage = document.querySelector(".hero-image img");
   const imagePlaceholder = document.getElementById("image-placeholder");
-  let profileHeader = document.getElementById("hero-name");
+  let heroName = document.getElementById("hero-name");
   // Function to create a delay
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -34,17 +34,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const [data] = await Promise.all([fetchData, minDelay]);
     // Fade out "Content Loading..."
-    profileHeader.classList.remove("visible");
+    heroName.classList.remove("visible");
     // Wait for the fade-out transition to complete
     await delay(1000); // Adjust the delay to match the CSS transition duration
     // Change the text to profile name and fade it in
-    profileHeader.innerText = data.profileName;
-    profileHeader.classList.add("visible");
+    heroName.innerText = data.profileName;
+    heroName.classList.add("visible");
     // Disable links and buttons when spinner is visible
     handleMetaData(data);
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
+    handleLearnMoreButton();
+    handleAdditionalLinksButton();
     updateProfileContent(data);
     updateProfileLinks(data);
     updateSocialMediaLinks(data);
@@ -158,13 +160,39 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function updateProfileSummary(data) {
-    let profileSummary = document.getElementById("hero-summary");
+    const heroSummary = document.getElementById("hero-summary");
+    const scrollButton = document.getElementById("learn-more-scroll-button");
 
     // Trigger the transition by adding the 'visible' class
     setTimeout(() => {
-      profileSummary.innerText = data.profileSummary;
-      profileSummary.classList.add("visible");
+      heroSummary.innerText = data.profileSummary;
+      heroSummary.classList.add("visible");
     }, 500);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              scrollButton.classList.add("visible");
+            }, 1000);
+
+            observer.unobserve(heroSummary); // Stop observing once the button is visible
+          }
+        });
+      },
+      {
+        threshold: 1.0, // Adjust this value as needed
+      }
+    );
+
+    observer.observe(heroSummary);
+
+    scrollButton.addEventListener("click", function () {
+      document
+        .getElementById("about-section")
+        .scrollIntoView({ behavior: "smooth" });
+    });
   }
 
   function appendUnderConstructionMessage(data) {
@@ -186,6 +214,47 @@ document.addEventListener("DOMContentLoaded", async function () {
       const li = document.createElement("li");
       li.textContent = line;
       profileContent.appendChild(li);
+    });
+  }
+
+  function handleLearnMoreButton() {
+    document
+      .getElementById("learn-more-scroll-button")
+      .addEventListener("click", function () {
+        document
+          .getElementById("about-section")
+          .scrollIntoView({ behavior: "smooth" });
+      });
+  }
+
+  function handleAdditionalLinksButton() {
+    const scrollButton = document.getElementById(
+      "additional-links-scroll-button"
+    );
+    const aboutSection = document.getElementById("about-section");
+    const linkSection = document.getElementById("link-section");
+
+    // Intersection Observer to show the button when about-section is in view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            scrollButton.classList.add("visible");
+          } else {
+            scrollButton.classList.remove("visible");
+          }
+        });
+      },
+      {
+        threshold: 1.0, // Adjust as needed
+      }
+    );
+
+    observer.observe(aboutSection);
+
+    // Smooth scroll to link-section when button is clicked
+    scrollButton.addEventListener("click", () => {
+      linkSection.scrollIntoView({ behavior: "smooth" });
     });
   }
 

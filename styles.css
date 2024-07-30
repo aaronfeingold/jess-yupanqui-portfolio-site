@@ -83,7 +83,6 @@ body {
     margin: 0;
 }
 
-
 .menu-modal-link {
     display: block;
     margin: 10px 0;
@@ -159,6 +158,19 @@ body {
     z-index: 2; /* Ensure it appears above the placeholder */
 }
 
+/* Loader styles */
+.spinner {
+    position: absolute;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #8c05b1; /* Blue */
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: spin 2s linear infinite;
+    z-index: 1000; /* Make sure it's above other content */
+}
+
 .hero-name {
     font-size: 2.5em;  /* Default font size */
     text-align: center;  /* Center the text */
@@ -166,13 +178,40 @@ body {
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
+
 .hero-summary {
     opacity: 0;
+    text-align: center;  /* Center the text */
     transition: opacity 1s ease-in-out;
 }
 
 .hero-name.visible, .hero-summary.visible {
     opacity: 1;
+}
+
+.scroll-button {
+    display: flex;
+    padding: 10px 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-family: 'futura', sans-serif;
+    color: #fff;
+    background-color: #4700b3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 0; /* Initially hide the button */
+    transition: opacity 1s ease-in-out; /* Smooth transition for visibility */
+}
+
+.scroll-button.visible {
+    opacity: 1; /* Show the button */
+}
+
+.scroll-button:hover {
+    background-color: #4700b3;
 }
 
 .content-section {
@@ -194,7 +233,7 @@ body {
     max-width: 600px;
     padding: 40px 10px; /* Add some padding for the entire container */
     padding-left: 20px; /* Add padding to the left to indent the bullet points */
-    min-height: auto; /* Override to ensure it only takes up as much space as needed */
+    min-height: 100vh; /* Change to min-height */
 }
 
 #links-section {
@@ -296,20 +335,6 @@ ul li::before {
 .toast.show {
     visibility: visible;
     opacity: 1;
-}
-
-/* Loader styles */
-.spinner {
-    position: absolute;
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #8c05b1; /* Blue */
-    box-sizing: border-box;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    animation: spin 2s linear infinite;
-    transform: translate(-50%, -50%); /* Center the loader */
-    z-index: 1000; /* Make sure it's above other content */
 }
 
 /* Animation for the loader */
