@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const links = document.querySelectorAll("a, button");
   const profileContentContainer = document.getElementById("content-section");
   const profileImage = document.querySelector(".hero-image img");
+  const imagePlaceholder = document.getElementById("image-placeholder");
   let profileHeader = document.getElementById("hero-name");
   // Function to create a delay
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -52,6 +53,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     spinner.style.display = "none"; // Hide the spinner
     profileImage.style.opacity = "1"; // Restore the profile image opacity
     profileContentContainer.style.display = "block"; // Show the profile content
+    profileImage.style.visibility = "visible"; // Show the profile image
+    imagePlaceholder.style.display = "none"; // Hide the image placeholder
   } catch (error) {
     console.error("Error fetching data:", error);
     spinner.style.display = "none"; // Hide the spinner even if there's an error
@@ -92,9 +95,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     // Close modal on link click
-    menuModal.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", function () {
+    menuModal.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
         menuModal.style.display = "none";
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
       });
     });
 
