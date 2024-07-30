@@ -92,7 +92,7 @@ body {
 }
 
 .menu-modal a:hover {
-    background-color: #f301bf;
+    background-color: #bf01f3;
 }
 
 .profile-page {
@@ -135,8 +135,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    height: auto; /* Maintain aspect ratio */
     background-color: #992add;
     display: flex;
     justify-content: center;
@@ -144,6 +143,7 @@ body {
     font-size: 1em;
     color: #992add;
     border-radius: 50%;
+    z-index: 1; /* Ensure it appears above the image initially */
 }
 
 .hero-image img {
@@ -154,6 +154,9 @@ body {
     margin-bottom: 20px; /* Added margin to the top of the image */
     margin-left: 20px;
     margin-right: 20px;
+    border: 10px solid #992add; /* Add border around the image */
+    box-sizing: border-box; /* Ensure border is included in the element's total width and height */
+    z-index: 2; /* Ensure it appears above the placeholder */
 }
 
 .hero-name {
