@@ -75,57 +75,71 @@ async function fetchAndCacheData() {
   }
 }
 
-function handleNavBar() {
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function handleNavBar(document) {
   const navBar = document.getElementById("nav-bar");
   const hamburgerMenu = document.getElementById("hamburger-menu");
   const menuModal = document.getElementById("menu-modal");
 
-  // Scroll effect for nav bar
-  window.addEventListener("scroll", function () {
+  function toggleNavBarTransparency() {
     if (window.scrollY > 50) {
       navBar.classList.add("transparent");
     } else {
       navBar.classList.remove("transparent");
     }
-  });
+  }
 
-  // Hamburger menu click event
-  hamburgerMenu.addEventListener("click", function () {
+  function toggleMenuModal() {
     if (menuModal.style.display === "none" || menuModal.style.display === "") {
       menuModal.style.display = "flex";
       menuModal.style.flexDirection = "column";
     } else {
       menuModal.style.display = "none";
     }
-  });
+  }
 
-  // Close modal on click outside
-  window.addEventListener("click", function (event) {
+  function closeModalOnClickOutside(event) {
     if (event.target === menuModal) {
       menuModal.style.display = "none";
     }
-  });
+  }
 
-  // Close modal on link click
-  menuModal.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      menuModal.style.display = "none";
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
+  function closeModalOnLinkClick(e) {
+    e.preventDefault();
+    menuModal.style.display = "none";
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
     });
-  });
+  }
 
-  // Smooth scroll
-  navBar.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  function addSmoothScroll(anchor) {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       document.querySelector(this.getAttribute("href")).scrollIntoView({
         behavior: "smooth",
       });
     });
+  }
+
+  // Scroll effect for nav bar
+  window.addEventListener("scroll", toggleNavBarTransparency);
+
+  // Hamburger menu click event
+  hamburgerMenu.addEventListener("click", toggleMenuModal);
+
+  // Close modal on click outside
+  window.addEventListener("click", closeModalOnClickOutside);
+
+  // Close modal on link click
+  menuModal.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", closeModalOnLinkClick);
   });
+
+  // Smooth scroll
+  navBar.querySelectorAll('a[href^="#"]').forEach(addSmoothScroll);
 }
 
 function handleMetaData(data) {
