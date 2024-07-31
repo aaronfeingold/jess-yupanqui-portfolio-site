@@ -232,21 +232,23 @@ document.addEventListener("DOMContentLoaded", async function () {
       "additional-links-scroll-button"
     );
     const aboutSection = document.getElementById("about-section");
-    const linkSection = document.getElementById("link-section");
+    const linkSection = document.getElementById("links-section");
 
     // Intersection Observer to show the button when about-section is in view
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            scrollButton.classList.add("visible");
-          } else {
-            scrollButton.classList.remove("visible");
+            setTimeout(() => {
+              scrollButton.classList.add("visible");
+            }, 500);
+
+            observer.unobserve(aboutSection); // Stop observing once the button is visible
           }
         });
       },
       {
-        threshold: 1.0, // Adjust as needed
+        threshold: 0.1, // Adjust as needed
       }
     );
 
