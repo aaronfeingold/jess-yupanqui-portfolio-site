@@ -57,7 +57,7 @@ body {
 }
 
 /* Modal styles */
-.modal-menu {
+.menu-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -70,7 +70,7 @@ body {
     z-index: 1001; /* Ensure it is above the nav-bar */
 }
 
-.modal-menu.active {
+.menu-modal.active {
     right: 0;
 }
 
@@ -390,6 +390,10 @@ ul li::before {
 
     .hamburger-menu {
         display: block;
+    }
+
+    .menu-modal {
+        display: block; /* Ensure modal is available for mobile */
     }
 
     #additional-links-scroll-button {
