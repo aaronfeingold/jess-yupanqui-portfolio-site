@@ -2,19 +2,23 @@ document.addEventListener("DOMContentLoaded", async function () {
   const spinner = document.getElementById("spinner");
   const links = document.querySelectorAll("a, button");
   const heroName = document.getElementById("hero-name");
-  const profileImage = document.getElementById("profile-image");
-  const profileContentContainer = document.getElementById(
-    "profile-content-container"
-  );
+  const profileImage = document.querySelector(".hero-image img");
+  const profileContentContainer = document.getElementById("content-section");
   const imagePlaceholder = document.getElementById("image-placeholder");
 
-  const observer = new MutationObserver(handleMutationObserver(spinner, links));
-  observer.observe(spinner, {
-    attributes: true,
-    attributeFilter: ["style"],
-  });
-
   try {
+    handleNavBar();
+    spinner.style.display = "block"; // Show the spinner
+    profileImage.style.opacity = "0.5"; // Dim the profile image
+
+    const observer = new MutationObserver(
+      handleMutationObserver(spinner, links)
+    );
+    observer.observe(spinner, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
+
     const minDelay = delay(2250); // 2.25 seconds delay
     const [data] = await Promise.all([fetchAndCacheData(), minDelay]);
 
@@ -24,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     heroName.classList.add("visible");
 
     handleMetaData(data);
+
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
@@ -101,7 +106,7 @@ function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function handleNavBar(document) {
+function handleNavBar() {
   const navBar = document.getElementById("nav-bar");
   const hamburgerMenu = document.getElementById("hamburger-menu");
   const menuModal = document.getElementById("menu-modal");
@@ -343,6 +348,9 @@ async function updateSocialMediaLinks(data) {
   }
 
   for (socialLink of socialMediaLinks) {
+    const iconObj = iconMap.iconList.find(
+      (iconObj) => iconObj.name === socialLink.name
+    );
     if (iconObj) {
       const socialLinkElement = createSocialLink(
         socialLink.href,
