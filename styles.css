@@ -193,7 +193,6 @@ body {
     display: flex;
     padding: 10px 20px;
     margin-top: 50px;
-    margin-bottom: 50px;
     font-size: 16px;
     font-family: 'futura', sans-serif;
     color: #fff;
@@ -241,7 +240,8 @@ body {
 }
 
 #additional-links-scroll-button {
-    margin-left: 100px;
+    margin-top: 220px;
+    margin-left: 220px;
 }
 
 .content-header h3 {
@@ -286,11 +286,6 @@ ul li::before {
     left: -10px; /* Position bullet point relative to the text */
     font-size: 1.2em; /* Adjust size if needed */
     color: white; /* Set bullet color */
-}
-
-#space-maker {
-    margin-top: 190px;
-    margin-bottom: 50px;
 }
 
 /* Change color on hover */
@@ -391,5 +386,12 @@ ul li::before {
 
     .hamburger-menu {
         display: block;
+    }
+
+    #additional-links-scroll-button {
+        margin-top: 200px;
+        margin-left: 100px;
+        margin-bottom: 100px;
+        margin-right: 100px;
     }
 }
