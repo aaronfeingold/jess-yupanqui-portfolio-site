@@ -237,7 +237,7 @@ body {
 }
 
 #links-section {
-    min-height: 100vh; /* Override to ensure it only takes up as much space as needed */
+    min-height: 50vh; /* Override to ensure it only takes up as much space as needed */
 }
 
 #additional-links-scroll-button {
