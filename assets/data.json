@@ -48,5 +48,6 @@
     { "name": "twitter:url", "content": "http://www.jess-yupanqui.com" },
     { "name": "twitter:card", "content": "summary" }
   ],
-  "underConstruction": false
+  "underConstruction": false,
+  "underConstructionMessage": "Thanks for visiting! This site is under construction at the moment, but you can find some of my current work here in the meantime"
 }
