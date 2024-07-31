@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     heroName.classList.add("visible");
 
     handleMetaData(data);
-
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     handleAdditionalLinksButton();
     updateProfileContent(data);
     updateProfileLinks(data);
-    updateSocialMediaLinks(data);
+    await updateSocialMediaLinks(data);
     setupContactLink(data.emailAddress);
 
     spinner.style.display = "none"; // Hide the spinner
@@ -134,8 +133,9 @@ function handleNavBar() {
     }
   }
 
-  function closeModalOnClickOutside(event) {
-    if (event.target === menuModal) {
+  function closeModalOnClickOutside(e) {
+    e.preventDefault();
+    if (!menuModal.contains(e.target) && !hamburgerMenu.contains(e.target)) {
       menuModal.classList.remove("active");
       setTimeout(() => {
         menuModal.style.display = "none";
