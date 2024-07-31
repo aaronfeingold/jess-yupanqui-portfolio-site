@@ -23,6 +23,7 @@ body {
 }
 
 .nav-bar.transparent {
+    transition: background-color 0.3s ease;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -56,18 +57,21 @@ body {
 }
 
 /* Modal styles */
-.menu-modal {
+.modal-menu {
     display: none;
     position: fixed;
-    top: 110px; /* Adjust this value to be just below the nav bar */
-    right: 100px;
-    width: 0;
-    height: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease-in-out;
-    z-index: 999; /* Ensure it is below the hamburger menu but above other content */
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1001; /* Ensure it is above the nav-bar */
+}
+
+.modal-menu.active {
+    right: 0;
 }
 
 .menu-modal-content{
