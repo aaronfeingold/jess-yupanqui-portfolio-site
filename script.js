@@ -120,23 +120,35 @@ function handleNavBar() {
   }
 
   function toggleMenuModal() {
-    if (menuModal.style.display === "none" || menuModal.style.display === "") {
+    if (menuModal.classList.contains("active")) {
+      menuModal.classList.remove("active");
+      setTimeout(() => {
+        menuModal.style.display = "none";
+      }, 300); // Match the transition duration
+    } else {
       menuModal.style.display = "flex";
       menuModal.style.flexDirection = "column";
-    } else {
-      menuModal.style.display = "none";
+      setTimeout(() => {
+        menuModal.classList.add("active");
+      }, 10); // Small delay to ensure display is set before adding class
     }
   }
 
   function closeModalOnClickOutside(event) {
     if (event.target === menuModal) {
-      menuModal.style.display = "none";
+      menuModal.classList.remove("active");
+      setTimeout(() => {
+        menuModal.style.display = "none";
+      }, 300); // Match the transition duration
     }
   }
 
   function closeModalOnLinkClick(e) {
     e.preventDefault();
-    menuModal.style.display = "none";
+    menuModal.classList.remove("active");
+    setTimeout(() => {
+      menuModal.style.display = "none";
+    }, 300); // Match the transition duration
     document.querySelector(this.getAttribute("href")).scrollIntoView({
       behavior: "smooth",
     });
