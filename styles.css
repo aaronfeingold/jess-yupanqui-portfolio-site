@@ -62,20 +62,22 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    background-color: #f144eb;
+    padding: 20px; /* Padding around the content */
+    box-shadow: -2px 0 5px #7810aa;
+    border-radius: 5px;
     transition: right 0.3s ease;
     z-index: 1001; /* Ensure it is above the nav-bar */
 }
 
 .menu-modal.active {
     right: 0;
+    display: flex; /* Flexbox layout for centering content */
+    flex-direction: column; /* Ensure content is stacked vertically */
 }
 
 .menu-modal-content{
-    background-color: white;
+    background-color: #f144eb;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -201,6 +203,7 @@ body {
     font-family: 'futura', sans-serif;
     color: #fff;
     background-color: #4700b3;
+    box-shadow: 0 8px 8px -4px #7810aa; /* Add shadow */
     border: none;
     border-radius: 5px;
     cursor: pointer;
