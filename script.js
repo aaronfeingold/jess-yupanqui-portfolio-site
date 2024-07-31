@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   try {
     handleNavBar();
     spinner.style.display = "block"; // Show the spinner
+    document.body.classList.add("no-scroll");
     profileImage.style.opacity = "0.5"; // Dim the profile image
 
     const observer = new MutationObserver(
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     setupContactLink(data.emailAddress);
 
     spinner.style.display = "none"; // Hide the spinner
+    document.body.classList.remove("no-scroll");
     profileImage.style.opacity = "1"; // Restore the profile image opacity
     profileContentContainer.style.display = "block"; // Show the profile content
     profileImage.style.visibility = "visible"; // Show the profile image
@@ -348,7 +350,7 @@ function createSocialLink(href, imgSrc, altText) {
 
 async function updateSocialMediaLinks(data) {
   const socialMediaLinks = data.socialMediaLinks;
-  const socialMediaContainer = document.getElementById("contact-anchors-list");
+  const contactList = document.getElementById("contact-anchors");
 
   const iconMap = await fetchAndCacheIconMap();
 
@@ -369,7 +371,9 @@ async function updateSocialMediaLinks(data) {
         `assets/${socialLink.name}.png`,
         iconObj.altText
       );
-      socialMediaContainer.appendChild(socialLinkElement);
+      const listItem = document.createElement("li");
+      listItem.appendChild(socialLinkElement);
+      contactList.appendChild(listItem);
     } else {
       console.warn(`Icon for ${socialLink.name} not found in icon map.`);
     }
