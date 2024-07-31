@@ -287,25 +287,50 @@ document.addEventListener("DOMContentLoaded", async function () {
     return anchor;
   }
 
-  function updateSocialMediaLinks(data) {
+  async function fetchIconMap() {
+    try {
+      const response = await fetch("assets/iconMap.json");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.error("Failed to fetch icon map:", error);
+      return null;
+    }
+  }
+
+  async function updateSocialMediaLinks(data) {
     const socialMediaLinks = data.socialMediaLinks;
-    const socialMediaContainer = document.querySelector(".contact-section");
-    // Create and append LinkedIn link
-    fetch("assets/iconMap.json")
-      .then((response) => response.json())
-      .then((data) => {});
-    for (socialLink of socialMediaLinks) {
-      const socialLinkElement = createSocialLink(
-        socialLink.href,
-        `assets/${socialLink.name}.png`,
-        socialLink.name
+    const socialMediaContainer = document.getElementById(
+      "contact-anchors-list"
+    );
+
+    const iconMap = await fetchIconMap();
+
+    if (!iconMap) {
+      console.error(
+        "Icon map is not available. Cannot update social media links."
       );
-      socialMediaContainer.appendChild(socialLinkElement);
+      return;
+    }
+
+    for (socialLink of socialMediaLinks) {
+      if (iconObj) {
+        const socialLinkElement = createSocialLink(
+          socialLink.href,
+          `assets/${socialLink.name}.png`,
+          iconObj.altText
+        );
+        socialMediaContainer.appendChild(socialLinkElement);
+      } else {
+        console.warn(`Icon for ${socialLink.name} not found in icon map.`);
+      }
     }
   }
 
   function setupContactLink(emailAddress) {
-    const contactLink = document.getElementById("contact-link");
+    const contactLink = document.getElementById("email-contact");
     const toast = document.getElementById("toast");
 
     contactLink.addEventListener("click", (event) => {
