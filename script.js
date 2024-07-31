@@ -75,6 +75,28 @@ async function fetchAndCacheData() {
   }
 }
 
+async function fetchAndCacheIconMap() {
+  const cachedIconMap = localStorage.getItem("iconMap");
+  if (cachedIconMap) {
+    return JSON.parse(cachedIconMap);
+  }
+
+  try {
+    const response = await fetch("assets/iconMap.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const iconMap = await response.json();
+    localStorage.setItem("iconMap", JSON.stringify(iconMap));
+
+    return iconMap;
+  } catch (error) {
+    console.error("Failed to fetch icon map:", error);
+
+    return null;
+  }
+}
+
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -222,8 +244,7 @@ function updateProfileSummary(data) {
 function appendUnderConstructionMessage(data) {
   if (data.underConstruction) {
     const message = document.createElement("p");
-    message.textContent =
-      "Thanks for visiting! This site is under construction at the moment, but you can find some of my current work here in the meantime:";
+    message.textContent = data.appendUnderConstructionMessage;
     const profileSummary = document.getElementById("hero-summary");
     profileSummary.parentNode.insertBefore(message, profileSummary.nextSibling);
   }
@@ -306,28 +327,6 @@ function createSocialLink(href, imgSrc, altText) {
   img.alt = altText;
   anchor.appendChild(img);
   return anchor;
-}
-
-async function fetchAndCacheIconMap() {
-  const cachedIconMap = localStorage.getItem("iconMap");
-  if (cachedIconMap) {
-    return JSON.parse(cachedIconMap);
-  }
-
-  try {
-    const response = await fetch("assets/iconMap.json");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const iconMap = await response.json();
-    localStorage.setItem("iconMap", JSON.stringify(iconMap));
-
-    return iconMap;
-  } catch (error) {
-    console.error("Failed to fetch icon map:", error);
-
-    return null;
-  }
 }
 
 async function updateSocialMediaLinks(data) {
