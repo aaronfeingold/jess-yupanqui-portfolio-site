@@ -111,12 +111,12 @@ html, body {
     align-items: center;
     justify-content: center;
     min-height: 100vh; /* Change to min-height */
-    padding: 40px 10px; /* Add some padding for the entire container */
+    padding-left:10px; /* Add some padding for the entire container */
+    padding-right:10px; /* Add some padding for the entire container */
     padding-top: 40px; /* Added padding to the top */
     max-width: 1000px; /* Set max-width for larger screens */
     margin: 0 auto; /* Center the container */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    padding-bottom: 40px; /* Added padding to the bottom */
     position: relative; /* Added to position the loader correctly */
 }
 
@@ -385,7 +385,7 @@ ul li::before {
 @media (max-width: 600px) {
     .profile-page{
         padding: 10px; /* Adjust padding for mobile */
-        padding-top: 40px; /* Ensure top padding for mobile */
+
         padding-bottom: 40px; /* Ensure top padding for mobile */
     }
 
