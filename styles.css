@@ -380,9 +380,7 @@ ul li::before {
 /* Responsive styles for mobile */
 @media (max-width: 600px) {
     .profile-page{
-        padding: 10px; /* Adjust padding for mobile */
-
-        padding-bottom: 40px; /* Ensure top padding for mobile */
+        padding: 0 0 10px; /* Adjust padding for mobile */
     }
 
     .hero-section {
