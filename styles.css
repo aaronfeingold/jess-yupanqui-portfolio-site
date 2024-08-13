@@ -131,7 +131,7 @@ html, body {
     margin: 0 auto; /* Center the container */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     position: relative; /* Added to position the loader correctly */
-    background-color: #ac6cfb;
+    /* background-color: #ac6cfb; */
     color: white;
 }
 
