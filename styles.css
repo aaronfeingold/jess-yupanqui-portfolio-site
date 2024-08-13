@@ -113,7 +113,6 @@ html, body {
     min-height: 100vh; /* Change to min-height */
     padding: 40px 10px 0 10px;
     margin: 0 auto; /* Center the container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .hero-section {
@@ -122,7 +121,6 @@ html, body {
     align-items: center;
     justify-content: center;
     min-height: 100vh; /* Change to min-height */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
     color: white;
 }
 
@@ -192,9 +190,7 @@ html, body {
 }
 
 .scroll-button {
-    /* display: flex; */
     padding: 10px 20px;
-    /* margin-top: 50px; */
     font-size: 16px;
     font-family: 'futura', sans-serif;
     color: #fff;
