@@ -3,7 +3,6 @@ html, body {
     top: 0;
     bottom: 0;
     margin: 0;
-    padding: 0;
     font-family: 'futura', sans-serif;
     background-color: #ac6cfb;
     color: white;
@@ -114,7 +113,6 @@ html, body {
     padding: 40px 10px 0 10px;
     margin: 0 auto; /* Center the container */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    position: relative; /* Added to position the loader correctly */
 }
 
 .hero-section {
@@ -124,7 +122,6 @@ html, body {
     justify-content: center;
     min-height: 100vh; /* Change to min-height */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    position: relative; /* Added to position the loader correctly */
     color: white;
 }
 
