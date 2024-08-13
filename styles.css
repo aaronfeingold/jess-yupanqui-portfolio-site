@@ -111,7 +111,6 @@ html, body {
     align-items: center;
     justify-content: center;
     min-height: 100vh; /* Change to min-height */
-    padding: 40px 10px 0 10px;
     margin: 0 auto; /* Center the container */
 }
 
@@ -122,6 +121,7 @@ html, body {
     justify-content: center;
     min-height: 100vh; /* Change to min-height */
     color: white;
+    width: auto;
 }
 
 .hero-image {
