@@ -125,7 +125,6 @@ html, body {
     min-height: 100vh; /* Change to min-height */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     position: relative; /* Added to position the loader correctly */
-    /* background-color: #ac6cfb; */
     color: white;
 }
 
