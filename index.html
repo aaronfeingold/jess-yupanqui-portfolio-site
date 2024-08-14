@@ -14,62 +14,64 @@
         <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <nav id="nav-bar" class="nav-bar">
-            <div class="nav-content">
-                <a href="#about-section" class="navbar-link">About</a>
-                <a href="#links-section" class="navbar-link">Links</a>
-                <a href="#contact-section" class="navbar-link">Contact</a>
-                <div class="hamburger-menu" id="hamburger-menu">
-                    &#9776;
+        <div id='root'>
+            <nav id="nav-bar" class="nav-bar">
+                <div class="nav-content">
+                    <a href="#about-section" class="navbar-link">About</a>
+                    <a href="#links-section" class="navbar-link">Links</a>
+                    <a href="#contact-section" class="navbar-link">Contact</a>
+                    <div class="hamburger-menu" id="hamburger-menu">
+                        &#9776;
+                    </div>
+                </div>
+            </nav>
+            <div id="menu-modal" class="menu-modal">
+                <div id="menu-modal-content" class="menu-modal-content">
+                    <a href="#about-section" class="menu-modal-link">About</a>
+                    <a href="#links-section" class="menu-modal-link">Links</a>
+                    <a href="#contact-section" class="menu-modal-link">Contact</a>
                 </div>
             </div>
-        </nav>
-        <div id="menu-modal" class="menu-modal">
-            <div id="menu-modal-content" class="menu-modal-content">
-                <a href="#about-section" class="menu-modal-link">About</a>
-                <a href="#links-section" class="menu-modal-link">Links</a>
-                <a href="#contact-section" class="menu-modal-link">Contact</a>
-            </div>
-        </div>
-        <div id="profile-page" class="profile-page">
-            <div id="hero-section" class="hero-section">
-                <div class="hero-image">
-                    <div id="image-placeholder" class="image-placeholder"></div>
-                    <img id="hero-image" src="assets/jess-yupanqui-feingold-professional-headshot.jpeg" alt="Profile Image">
+            <div id="profile-page" class="profile-page">
+                <div id="hero-section" class="hero-section">
+                    <div class="hero-image">
+                        <div id="image-placeholder" class="image-placeholder"></div>
+                        <img id="hero-image" src="assets/jess-yupanqui-feingold-professional-headshot.jpeg" alt="Profile Image">
+                    </div>
+                    <div id="spinner" class="spinner"></div>
+                    <h1 id="hero-name" class="hero-name">Name</h1>
+                    <h2 id="hero-summary"  class="hero-summary">Summary</h2>
+                    <button id="learn-more-scroll-button" class="scroll-button" data-target="#about-section">Learn More</button>
                 </div>
-                <div id="spinner" class="spinner"></div>
-                <h1 id="hero-name" class="hero-name">Name</h1>
-                <h2 id="hero-summary"  class="hero-summary">Summary</h2>
-                <button id="learn-more-scroll-button" class="scroll-button" data-target="#about-section">Learn More</button>
-            </div>
-            <div id="content-section" class="content-section">
-                <div id="about-section" class="content-subsection">
-                    <h3 id="about-header" class="content-header">About</h3>
-                    <ul id="about-content" class="content-list">
-                    </ul>
-                    <button id="additional-links-scroll-button" class="scroll-button" data-target="#links-section">Additional Links</button>
-                </div>
-                <div id="links-section" class="content-subsection">
-                    <h3 id="links-header" class="content-header">Links</h3>
-                    <ul id="links-list" class="content-list">
-                    </ul>
-                </div>
-                <div id="contact-section" class="content-subsection">
-                    <h3 id="contact-header" class="content-header">Contact</h3>
-                    <div id="contact-anchors-list" class="contact-options">
-                        <div id="toast" class="toast"></div>
-                        <ul id="contact-anchors" class="content-list">
-                            <li>
-                                <a href="#" id="email-contact">Email</a>
-                            </li>
+                <div id="content-section" class="content-section">
+                    <div id="about-section" class="content-subsection">
+                        <h3 id="about-header" class="content-header">About</h3>
+                        <ul id="about-content" class="content-list">
                         </ul>
+                        <button id="additional-links-scroll-button" class="scroll-button" data-target="#links-section">Additional Links</button>
+                    </div>
+                    <div id="links-section" class="content-subsection">
+                        <h3 id="links-header" class="content-header">Links</h3>
+                        <ul id="links-list" class="content-list">
+                        </ul>
+                    </div>
+                    <div id="contact-section" class="content-subsection">
+                        <h3 id="contact-header" class="content-header">Contact</h3>
+                        <div id="contact-anchors-list" class="contact-options">
+                            <div id="toast" class="toast"></div>
+                            <ul id="contact-anchors" class="content-list">
+                                <li>
+                                    <a href="#" id="email-contact">Email</a>
+                                </li>
+                            </ul>
 
+                        </div>
                     </div>
                 </div>
             </div>
+            <footer id="footer" class="footer">
+            </footer>
         </div>
-        <footer id="footer" class="footer">
-        </footer>
         <script src="script.js" defer></script>
     </body>
 </html>
