@@ -5,9 +5,10 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'futura', sans-serif;
-    background-color: #ac6cfb;
+    background-color: #d9cbb6;
     color: white;
     text-align: left;
+    font-size: 100% /* default is 16px */
 }
 
 .no-scroll {
@@ -19,7 +20,7 @@ html, body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #8b5e3c;
     color: white;
     padding: 10px;
     transition: background-color 0.3s;
@@ -29,7 +30,7 @@ html, body {
 
 .nav-bar.transparent {
     transition: background-color 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(139, 94, 60, 0.5); /* Lighter earthy brown */
 }
 
 .nav-content {
@@ -121,7 +122,8 @@ html, body {
     justify-content: center;
     min-height: 100vh; /* Change to min-height */
     color: white;
-    width: auto;
+    background-color: #d9cbb6;
+    width: 100%;
 }
 
 .hero-image {
@@ -135,7 +137,7 @@ html, body {
     top: 0;
     left: 0;
     height: auto; /* Maintain aspect ratio */
-    background-color: #992add;
+    background-color: #c59876;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,7 +155,7 @@ html, body {
     margin-bottom: 20px; /* Added margin to the top of the image */
     margin-left: 20px;
     margin-right: 20px;
-    border: 10px solid #992add; /* Add border around the image */
+    border: 10px solid #c59876; /* Add border around the image */
     box-sizing: border-box; /* Ensure border is included in the element's total width and height */
     z-index: 2; /* Ensure it appears above the placeholder */
 }
@@ -194,8 +196,8 @@ html, body {
     font-size: 16px;
     font-family: 'futura', sans-serif;
     color: #fff;
-    background-color: #4700b3;
-    box-shadow: 0 8px 8px -4px #7810aa; /* Add shadow */
+    background-color: #b57d53;
+    box-shadow: 7px 9px 8px -4px #4e3314; /* Add shadow */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -217,20 +219,18 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 10px; /* Add some padding for the entire container */
-    max-width: 1000px; /* Set max-width for larger screens */
     margin: 0 auto; /* Center the container */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     padding-bottom: 40px; /* Added padding to the bottom */
     position: relative; /* Added to position the loader correctly */
-    background-color: #ac6cfb;
     color: white;
 }
 
 .content-subsection {
-    max-width: 600px;
-    padding: 40px 10px; /* Add some padding for the entire container */
-    padding-left: 20px; /* Add padding to the left to indent the bullet points */
+    background-color: #b8a08c;
+    padding-top: 10px;
+    padding-right: 200px;
+    padding-left: 200px;
     min-height: 100vh; /* Change to min-height */
 }
 
@@ -244,7 +244,7 @@ html, body {
 }
 
 .content-header h3 {
-    color: white
+    color: white;
 }
 
 h1 {
