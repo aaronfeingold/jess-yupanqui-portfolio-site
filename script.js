@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   try {
     handleNavBar();
+    handleSubsectionBackgrounds();
     spinner.style.display = "block"; // Show the spinner
     profileImage.style.opacity = "0.5"; // Dim the profile image
 
@@ -403,5 +404,20 @@ function setupContactLink(emailAddress) {
     setTimeout(() => {
       toast.classList.remove("show");
     }, 3000);
+  }
+}
+
+function handleSubsectionBackgrounds() {
+  const backgroundColors = ["#d29145", "#d9cbb6"];
+  const subsections = document.querySelectorAll(".content-subsection");
+  console.log(subsections);
+  let i = 0;
+  for (ss of subsections) {
+    ss.style.backgroundColor = backgroundColors[i];
+    if (i === 0) {
+      i = 1;
+    } else {
+      i = 0;
+    }
   }
 }
