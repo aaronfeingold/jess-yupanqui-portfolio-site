@@ -178,12 +178,14 @@ html, body {
     margin: 20px 0;  /* Add some margin */
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    color:#af4503;
 }
 
 .hero-summary {
     opacity: 0;
     text-align: center;  /* Center the text */
     transition: opacity 1s ease-in-out;
+    color:darkgreen;
 }
 
 .hero-name.visible, .hero-summary.visible {
