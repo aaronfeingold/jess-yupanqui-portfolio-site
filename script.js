@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     handleAdditionalLinksButton();
     updateProfileContent(data);
     updateProfileLinks(data);
-    await updateSocialMediaLinks(data);
-    setupContactLink(data.emailAddress);
+    // await updateSocialMediaLinks(data);
+    // setupContactLink(data.emailAddress);
 
     spinner.style.display = "none"; // Hide the spinner
     profileImage.style.opacity = "1"; // Restore the profile image opacity
@@ -254,7 +254,7 @@ function updateProfileSummary(data) {
 
   scrollButton.addEventListener("click", function () {
     document
-      .getElementById("about-section")
+      .getElementById("about-subsection")
       .scrollIntoView({ behavior: "smooth" });
   });
 }
@@ -282,7 +282,7 @@ function handleLearnMoreButton() {
     .getElementById("learn-more-scroll-button")
     .addEventListener("click", function () {
       document
-        .getElementById("about-section")
+        .getElementById("about-subsection")
         .scrollIntoView({ behavior: "smooth" });
     });
 }
@@ -291,8 +291,8 @@ function handleAdditionalLinksButton() {
   const scrollButton = document.getElementById(
     "additional-links-scroll-button"
   );
-  const aboutSection = document.getElementById("about-section");
-  const linkSection = document.getElementById("links-section");
+  const aboutSection = document.getElementById("about-subsection");
+  const linkSection = document.getElementById("links-subsection");
 
   // Intersection Observer to show the button when about-section is in view
   const observer = new IntersectionObserver(
