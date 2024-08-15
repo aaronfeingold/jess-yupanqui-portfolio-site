@@ -408,12 +408,15 @@ function setupContactLink(emailAddress) {
 }
 
 function handleSubsectionBackgrounds() {
-  const backgroundColors = ["#d29145", "#d9cbb6"];
+  const backgroundImages = [
+    "linear-gradient(120deg, #122700cc 0%, #10f57dfc 100%)",
+    "linear-gradient(70deg, #f35e0a 0%, #F7CE68 100%)",
+  ];
   const subsections = document.querySelectorAll(".content-subsection");
   console.log(subsections);
   let i = 0;
   for (ss of subsections) {
-    ss.style.backgroundColor = backgroundColors[i];
+    ss.style.backgroundImage = backgroundImages[i];
     if (i === 0) {
       i = 1;
     } else {
