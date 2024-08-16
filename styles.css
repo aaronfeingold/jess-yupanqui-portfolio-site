@@ -171,7 +171,8 @@ html, body {
     margin-bottom: 20px; /* Added margin to the top of the image */
     margin-left: 20px;
     margin-right: 20px;
-    border: 10px solid #ed8536; /* Add border around the image */
+    border: 10px solid #179939; /* Add border around the image */
+    box-shadow: 0px 0px 17px 5px #32c068;
     z-index: 2; /* Ensure it appears above the placeholder */
 }
 
