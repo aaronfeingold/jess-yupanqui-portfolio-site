@@ -1,3 +1,6 @@
+const CACHE_TIMESTAMP_KEY = "cacheTimestamp";
+const CACHE_EXPIRATION = 10 * 60 * 1000; // 10 minutes in milliseconds
+
 document.addEventListener("DOMContentLoaded", async function () {
   const spinner = document.getElementById("spinner");
   const links = document.querySelectorAll("a, button");
@@ -24,12 +27,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const [data] = await Promise.all([fetchAndCacheData(), minDelay]);
 
     heroName.classList.remove("visible");
+    handleHeroImage(data);
+    profileImage.style.visibility = "visible"; // Show the profile image
+    profileImage.classList.add("visible");
     await delay(1000); // Adjust the delay to match the CSS transition duration
     heroName.innerText = data.profileName;
     heroName.classList.add("visible");
 
     handleMetaData(data);
-    handleHeroImage(data);
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
@@ -44,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     spinner.style.display = "none"; // Hide the spinner
     profileImage.style.opacity = "1"; // Restore the profile image opacity
     profileContentContainer.style.display = "block"; // Show the profile content
-    profileImage.style.visibility = "visible"; // Show the profile image
     imagePlaceholder.style.display = "none"; // Hide the image placeholder
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -64,8 +68,15 @@ function handleMutationObserver(spinner, links) {
 
 async function fetchAndCacheData() {
   const cachedData = localStorage.getItem("data");
-  if (cachedData) {
-    return JSON.parse(cachedData);
+  const cacheTimestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+  const now = new Date().getTime();
+
+  if (cachedData && cacheTimestamp) {
+    const age = now - parseInt(cacheTimestamp, 10);
+    if (age < CACHE_EXPIRATION) {
+      // Use cached data
+      return JSON.parse(cachedData);
+    }
   }
 
   try {
@@ -74,6 +85,7 @@ async function fetchAndCacheData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
+    localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
     localStorage.setItem("data", JSON.stringify(data));
     return data;
   } catch (error) {
@@ -443,14 +455,12 @@ function setupContactLink(emailAddress) {
 function handleSubsectionBackgrounds() {
   const backgroundImages = ["#d29145", "#d9cbb6"];
   const subsections = document.querySelectorAll(".content-subsection");
-  console.log(subsections);
 
   for (let i = 0; i < subsections.length; i++) {
     subsections[i].style.backgroundColor =
       backgroundImages[i % backgroundImages.length];
 
     if (i === subsections.length - 1) {
-      console.log(subsections[i].style);
       subsections[i].style.height = "auto";
     } else {
       subsections[i].style.minHeight = "100vh";
@@ -461,5 +471,4 @@ function handleSubsectionBackgrounds() {
 function handleHeroImage(data) {
   const heroImage = document.getElementById("hero-image");
   heroImage.src = data.profileImage;
-  console.log("heroImage", heroImage);
 }
