@@ -274,6 +274,15 @@ ul {
     margin: 0 0 20px;
 }
 
+#about-content li::before {
+    content: '•';
+    position: absolute;
+    left: -10px; /* Position bullet point relative to the text */
+    font-size: 1.2em; /* Adjust size if needed */
+    color: white; /* Set bullet color */
+    padding-left: 10px; /* Indent bullet points */
+}
+
 #links-list li::before {
     content: '•';
     position: absolute;
