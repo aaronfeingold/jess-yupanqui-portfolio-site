@@ -441,15 +441,12 @@ function setupContactLink(emailAddress) {
 }
 
 function handleSubsectionBackgrounds() {
-  const backgroundImages = [
-    "linear-gradient(120deg, #122700cc 0%, #10f57dfc 100%)",
-    "linear-gradient(70deg, #f35e0a 0%, #F7CE68 100%)",
-  ];
+  const backgroundImages = ["#d29145", "#d9cbb6"];
   const subsections = document.querySelectorAll(".content-subsection");
   console.log(subsections);
 
   for (let i = 0; i < subsections.length; i++) {
-    subsections[i].style.backgroundImage =
+    subsections[i].style.backgroundColor =
       backgroundImages[i % backgroundImages.length];
 
     if (i === subsections.length - 1) {
