@@ -6,6 +6,10 @@
     {
       "name": "linkedIn",
       "href": "https://www.linkedin.com/in/jess-yupanqui-feingold-7a5a4a16/"
+    },
+    {
+      "name": "substack",
+      "href": "https://jessfeingold.substack.com/"
     }
   ],
   "variousHyperlinks": [
@@ -30,6 +34,7 @@
       "text": "We Are Powerful Because We Are Many (nonprofitquarterly.org)"
     }
   ],
+  "profileImage": "assets/jess-yupanqui-feingold-professional-headshot.jpeg",
   "profileSummary": "executive leader, impact investor, and creative entrepreneur",
   "profileContent": [
     "She currently serves as Co-CEO at Common Future, an organization which invests in Black and indigenous communities so that racial economic inequality becomes a thing of the past. Her expertise lies in brand strategy and positioning, grant and capital raising, storytelling and influence—all in service to building a more equitable economy. ",

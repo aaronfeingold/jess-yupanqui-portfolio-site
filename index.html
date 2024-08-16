@@ -7,69 +7,83 @@
         <!-- meta data -->
         <base href="">
         <meta charset="utf-8"/>
-        <title id="page-title">AppGold Template</title>
+        <title id="page-title">Jess Feingold</title>
         <meta http-equiv="Accept-CH" content="Sec-CH-UA-Platform-Version, Sec-CH-UA-Model"/>
         <link rel="canonical" id="canonical-link" href=""/>
         <link rel="stylesheet" href="styles.css">
-
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     </head>
     <body id="main-body">
-        <nav id="nav-bar" class="nav-bar">
-            <div class="nav-content">
-                <a href="#about-section" class="navbar-link">About</a>
-                <a href="#links-section" class="navbar-link">Links</a>
-                <a href="#contact-section" class="navbar-link">Contact</a>
-                <div class="hamburger-menu" id="hamburger-menu">
-                    &#9776;
+            <nav id="nav-bar" class="nav-bar">
+                <div class="nav-content">
+                    <a href="#hero-section" class="home-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2.5" stroke="currentColor" class="home-svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                        </svg>
+                    </a>
+                    <a href="#about-subsection" class="navbar-link">About</a>
+                    <a href="#links-subsection" class="navbar-link">Podcasts</a>
+                    <a href="#footer" class="navbar-link">Connect</a>
+                    <div class="hamburger-menu" id="hamburger-menu">
+                        &#9776;
+                    </div>
+                </div>
+            </nav>
+            <div id="menu-modal" class="menu-modal">
+                <div id="menu-modal-content" class="menu-modal-content">
+                    <a href="#hero-section" class="menu-modal-link">Home</a>
+                    <a href="#about-subsection" class="menu-modal-link">About</a>
+                    <a href="#links-subsection" class="menu-modal-link">Podcasts</a>
+                    <a href="#footer" class="menu-modal-link">Connect</a>
                 </div>
             </div>
-        </nav>
-        <div id="menu-modal" class="menu-modal">
-            <div id="menu-modal-content" class="menu-modal-content">
-                <a href="#about-section" class="menu-modal-link">About</a>
-                <a href="#links-section" class="menu-modal-link">Links</a>
-                <a href="#contact-section" class="menu-modal-link">Contact</a>
-            </div>
-        </div>
-        <div id="profile-page" class="profile-page">
-            <div id="hero-section" class="hero-section">
-                <div class="hero-image">
-                    <div id="image-placeholder" class="image-placeholder"></div>
-                    <img id="hero-image" src="assets/jess-yupanqui-feingold-professional-headshot.jpeg" alt="Profile Image">
+            <div id="profile-page" class="profile-page">
+                <div id="hero-section" class="hero-section">
+                    <div class="hero-image">
+                        <div id="image-placeholder" class="image-placeholder"></div>
+                        <img id="hero-image">
+                    </div>
+                    <div id="spinner" class="spinner"></div>
+                    <div id="hero-overlay" class="hero-overlay">
+                        <h1 id="hero-name" class="hero-name">Name</h1>
+                        <h2 id="hero-summary"  class="hero-summary">Summary</h2>
+                        <button id="learn-more-scroll-button" class="scroll-button" data-target="#about-content">Learn More</button>
+                    </div>
                 </div>
-                <div id="spinner" class="spinner"></div>
-                <h1 id="hero-name" class="hero-name"></h1>
-                <h2 id="hero-summary"  class="hero-summary"></h2>
-                <button id="learn-more-scroll-button" class="scroll-button" data-target="#about-section">Learn More</button>
-            </div>
-            <div id="content-section" class="content-section">
-                <div id="about-section" class="content-subsection">
-                    <h3 id="about-header" class="content-header">About</h3>
-                    <ul id="about-content" class="content-list">
-                    </ul>
-                    <button id="additional-links-scroll-button" class="scroll-button" data-target="#links-section">Additional Links</button>
-                </div>
-                <div id="links-section" class="content-subsection">
-                    <h3 id="links-header" class="content-header">Links</h3>
-                    <ul id="links-list" class="content-list">
-                    </ul>
-                </div>
-                <div id="contact-section" class="content-subsection">
-                    <h3 id="contact-header" class="content-header">Contact</h3>
-                    <div id="contact-anchors-list" class="contact-options">
-                        <div id="toast" class="toast"></div>
-                        <ul id="contact-anchors" class="content-list">
-                            <li>
-                                <a href="#" id="email-contact">Email</a>
-                            </li>
-                        </ul>
-
+                <div id="content-section" class="content-section">
+                    <div id="about-subsection" class="content-subsection">
+                        <div id="about-content" class="content">
+                            <h3 id="about-header" class="content-header">About</h3>
+                            <ul id="about-content" class="content-list">
+                            </ul>
+                        </div>
+                        <button id="additional-links-scroll-button" class="scroll-button" data-target="#links-content">Podcasts</button>
+                    </div>
+                    <div id="links-subsection" class="content-subsection">
+                        <div id="links-content" class="content">
+                            <h3 id="links-header" class="content-header">Podcasts</h3>
+                            <ul id="links-list" class="content-list">
+                            </ul>
+                        </div>
+                        <button id="connect-scroll-button" class="scroll-button" data-target="#connect-content">Connect</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <footer id="footer" class="footer">
-        </footer>
+            <footer id="footer" class="content-subsection">
+                <div id="connect" class="content">
+                    <div id="connect-container" class="flex-container">
+                        <h3 id="connect-header" class="content-header">Connect With Jess</h3>
+                        <div id="toast" class="toast"></div>
+                        <div id="email-row" class="flex-row">
+                          <a href="#" id="email-contact" class="emailButton">Email</a>
+                        </div>
+                        <div id="social-media-row" class="flex-row">
+                          <ul id="connect-list" class="flex-row">
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+            </footer>
         <script src="script.js" defer></script>
     </body>
 </html>

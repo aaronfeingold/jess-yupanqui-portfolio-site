@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   try {
     handleNavBar();
+    handleSubsectionBackgrounds();
     spinner.style.display = "block"; // Show the spinner
-    document.body.classList.add("no-scroll");
     profileImage.style.opacity = "0.5"; // Dim the profile image
 
     const observer = new MutationObserver(
@@ -29,18 +29,19 @@ document.addEventListener("DOMContentLoaded", async function () {
     heroName.classList.add("visible");
 
     handleMetaData(data);
+    handleHeroImage(data);
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
     handleLearnMoreButton();
     handleAdditionalLinksButton();
+    handleConnectButton();
     updateProfileContent(data);
     updateProfileLinks(data);
     await updateSocialMediaLinks(data);
     setupContactLink(data.emailAddress);
 
     spinner.style.display = "none"; // Hide the spinner
-    document.body.classList.remove("no-scroll");
     profileImage.style.opacity = "1"; // Restore the profile image opacity
     profileContentContainer.style.display = "block"; // Show the profile content
     profileImage.style.visibility = "visible"; // Show the profile image
@@ -255,7 +256,7 @@ function updateProfileSummary(data) {
 
   scrollButton.addEventListener("click", function () {
     document
-      .getElementById("about-section")
+      .getElementById("about-subsection")
       .scrollIntoView({ behavior: "smooth" });
   });
 }
@@ -283,7 +284,7 @@ function handleLearnMoreButton() {
     .getElementById("learn-more-scroll-button")
     .addEventListener("click", function () {
       document
-        .getElementById("about-section")
+        .getElementById("about-subsection")
         .scrollIntoView({ behavior: "smooth" });
     });
 }
@@ -292,8 +293,8 @@ function handleAdditionalLinksButton() {
   const scrollButton = document.getElementById(
     "additional-links-scroll-button"
   );
-  const aboutSection = document.getElementById("about-section");
-  const linkSection = document.getElementById("links-section");
+  const aboutSection = document.getElementById("about-subsection");
+  const linkSection = document.getElementById("links-subsection");
 
   // Intersection Observer to show the button when about-section is in view
   const observer = new IntersectionObserver(
@@ -318,6 +319,37 @@ function handleAdditionalLinksButton() {
   // Smooth scroll to link-section when button is clicked
   scrollButton.addEventListener("click", () => {
     linkSection.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+function handleConnectButton() {
+  const scrollButton = document.getElementById("connect-scroll-button");
+  const linksSection = document.getElementById("links-subsection");
+  const connectSection = document.getElementById("footer");
+
+  // Intersection Observer to show the button when links-section is in view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            scrollButton.classList.add("visible");
+          }, 500);
+
+          observer.unobserve(linksSection); // Stop observing once the button is visible
+        }
+      });
+    },
+    {
+      threshold: 0.1, // Adjust as needed
+    }
+  );
+
+  observer.observe(linksSection);
+
+  // Smooth scroll to link-section when button is clicked
+  scrollButton.addEventListener("click", () => {
+    connectSection.scrollIntoView({ behavior: "smooth" });
   });
 }
 
@@ -350,7 +382,7 @@ function createSocialLink(href, imgSrc, altText) {
 
 async function updateSocialMediaLinks(data) {
   const socialMediaLinks = data.socialMediaLinks;
-  const contactList = document.getElementById("contact-anchors");
+  const contactList = document.getElementById("connect-list");
 
   const iconMap = await fetchAndCacheIconMap();
 
@@ -406,4 +438,28 @@ function setupContactLink(emailAddress) {
       toast.classList.remove("show");
     }, 3000);
   }
+}
+
+function handleSubsectionBackgrounds() {
+  const backgroundImages = ["#d29145", "#d9cbb6"];
+  const subsections = document.querySelectorAll(".content-subsection");
+  console.log(subsections);
+
+  for (let i = 0; i < subsections.length; i++) {
+    subsections[i].style.backgroundColor =
+      backgroundImages[i % backgroundImages.length];
+
+    if (i === subsections.length - 1) {
+      console.log(subsections[i].style);
+      subsections[i].style.height = "auto";
+    } else {
+      subsections[i].style.minHeight = "100vh";
+    }
+  }
+}
+
+function handleHeroImage(data) {
+  const heroImage = document.getElementById("hero-image");
+  heroImage.src = data.profileImage;
+  console.log("heroImage", heroImage);
 }
