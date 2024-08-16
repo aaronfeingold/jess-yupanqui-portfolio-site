@@ -50,6 +50,15 @@ html, body {
     padding: 0 20px; /* Adjust padding to align with the nav-bar */
     max-width: 1000px; /* Set a max-width to align with the content */
     width: 100%; /* Ensure it takes full width within the max-width */
+    color: white;
+}
+
+.home-button {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    color: #8B4513;
 }
 
 .navbar-link {
@@ -466,10 +475,10 @@ p {
 
     .nav-bar {
         padding: 20px 0; /* Make the nav-bar thicker */
+        display: #8B4513;
     }
 
     .navbar-link {
-        display: none;
     }
 
     .hamburger-menu {
