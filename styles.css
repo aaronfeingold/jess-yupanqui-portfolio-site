@@ -10,8 +10,6 @@ html, body {
     text-align: left;
     box-sizing: border-box;
     overflow-x: hidden;
-    background: #00aa77;
-    background-image: url("assets/zenbg-1.png"), url("assets/zenbg-2.png");
     background-repeat: repeat-x, repeat;
 }
 
@@ -25,19 +23,16 @@ html, body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #8b5e3c;
+    background-color: #d29145;
     color: white;
     padding: 10px;
     transition: background-color 0.3s, background-image 0.3s;
     overflow: hidden; /* Prevent overflow content */
     z-index: 1000;
-    background-color: #F4D03F;
-    background-image: linear-gradient(132deg, #5a7e12 0%, #c1b331e6 50%, #bf4606e6 100%);
 }
 
 .nav-bar.transparent {
     background-color: rgba(244, 208, 63, 0.5); /* Adjust transparency */
-    background-image: linear-gradient(132deg, rgba(22, 160, 133, 0.5) 0%, rgba(244, 208, 63, 0.5) 100%);
 }
 
 .nav-content {
@@ -58,7 +53,7 @@ html, body {
     left: 0;
     display: flex;
     align-items: center;
-    color: #8B4513;
+    color: #fff;
 }
 
 .home-svg {
@@ -92,14 +87,12 @@ html, body {
     border-radius: 5px;
     transition: right 0.3s ease;
     z-index: 1001; /* Ensure it is above the nav-bar */
-    /* background-color: #F4D03F;
-    background-image: linear-gradient(132deg, #5a7e12 0%, #c1b331e6 50%, #bf4606e6 100%); */
     --s: 80px; /* the size */
-    --c: #5E8C6A;
+    --c: #8a8c5e;
 
     --_s: calc(2*var(--s)) calc(2*var(--s));
     --_g: 35.36% 35.36% at;
-    --_c: #0000 66%,#BFB35A 68% 70%,#0000 72%;
+    --_c: #0000 66%,#6f640e 68% 70%,#0000 72%;
     background:
       radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s),
       radial-gradient(var(--_g) 0    75%,var(--_c)) var(--s) var(--s)/var(--_s),
@@ -144,7 +137,7 @@ html, body {
 .spinner {
     position: absolute;
     border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #4dbb3c;
+    border-top: 16px solid #d29145;
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -200,8 +193,7 @@ html, body {
     margin-bottom: 20px; /* Added margin to the top of the image */
     margin-left: 20px;
     margin-right: 20px;
-    border: 10px solid #179939; /* Add border around the image */
-    box-shadow: 0px 0px 17px 5px #32c068;
+    box-shadow: 0px 0px 17px 5px #fff;
     z-index: 2; /* Ensure it appears above the placeholder */
 }
 
