@@ -235,7 +235,6 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: top;
-    min-height: 100vh; /* Change to min-height */
     padding: 20px; /* Add padding to ensure content does not touch the edges */
     background: #d29145;
     min-width: 100vw
@@ -260,8 +259,8 @@ ul {
     margin: 0 0 20px;
 }
 
-li::before {
-    content: '•'; /* Use custom bullet point */
+#links-list li::before {
+    content: '•';
     position: absolute;
     left: -10px; /* Position bullet point relative to the text */
     font-size: 1.2em; /* Adjust size if needed */
@@ -274,7 +273,6 @@ li {
     margin-bottom: 40px;
     padding-left: 20px; /* Indent bullet points */
     position: relative;
-    content: '•'; /* Use custom bullet point */
     font-size: 1.2rem; /* Adjust size if needed */
     color: white
 }
@@ -309,6 +307,38 @@ p {
 }
 #links-list li a {
     color: white; /* Gold color*/
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adjust the gap between rows */
+  }
+
+/* Flexbox row */
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adjust the gap between items */
+}
+/* Style for the email button */
+#email-contact {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+/* Style for the social media icons */
+#connect-list li {
+    list-style-type: none;
+}
+#connect-list img {
+    list-style-type: none;
+    max-width: 100px;
+    height: auto;
 }
 
 #contact-section {
