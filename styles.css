@@ -479,6 +479,7 @@ p {
     }
 
     .navbar-link {
+        display: none;
     }
 
     .hamburger-menu {
