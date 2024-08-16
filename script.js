@@ -34,10 +34,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     appendUnderConstructionMessage(data);
     handleLearnMoreButton();
     handleAdditionalLinksButton();
+    handleConnectButton();
     updateProfileContent(data);
     updateProfileLinks(data);
-    // await updateSocialMediaLinks(data);
-    // setupContactLink(data.emailAddress);
+    await updateSocialMediaLinks(data);
+    setupContactLink(data.emailAddress);
 
     spinner.style.display = "none"; // Hide the spinner
     profileImage.style.opacity = "1"; // Restore the profile image opacity
@@ -320,6 +321,37 @@ function handleAdditionalLinksButton() {
   });
 }
 
+function handleConnectButton() {
+  const scrollButton = document.getElementById("connect-scroll-button");
+  const linksSection = document.getElementById("links-subsection");
+  const connectSection = document.getElementById("connect-subsection");
+
+  // Intersection Observer to show the button when links-section is in view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            scrollButton.classList.add("visible");
+          }, 500);
+
+          observer.unobserve(linksSection); // Stop observing once the button is visible
+        }
+      });
+    },
+    {
+      threshold: 0.1, // Adjust as needed
+    }
+  );
+
+  observer.observe(linksSection);
+
+  // Smooth scroll to link-section when button is clicked
+  scrollButton.addEventListener("click", () => {
+    connectSection.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
 function updateProfileLinks(data) {
   const profileLinksSection = document.getElementById("links-list");
   if (Array.isArray(data.variousHyperlinks)) {
@@ -349,7 +381,7 @@ function createSocialLink(href, imgSrc, altText) {
 
 async function updateSocialMediaLinks(data) {
   const socialMediaLinks = data.socialMediaLinks;
-  const contactList = document.getElementById("contact-anchors");
+  const contactList = document.getElementById("connect-list");
 
   const iconMap = await fetchAndCacheIconMap();
 
@@ -414,13 +446,16 @@ function handleSubsectionBackgrounds() {
   ];
   const subsections = document.querySelectorAll(".content-subsection");
   console.log(subsections);
-  let i = 0;
-  for (ss of subsections) {
-    ss.style.backgroundImage = backgroundImages[i];
-    if (i === 0) {
-      i = 1;
+
+  for (let i = 0; i < subsections.length; i++) {
+    subsections[i].style.backgroundImage =
+      backgroundImages[i % backgroundImages.length];
+
+    if (i === subsections.length - 1) {
+      console.log(subsections[i].style);
+      subsections[i].style.height = "auto";
     } else {
-      i = 0;
+      subsections[i].style.minHeight = "100vh";
     }
   }
 }
