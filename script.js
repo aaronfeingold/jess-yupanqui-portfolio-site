@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     heroName.classList.add("visible");
 
     handleMetaData(data);
+    handleHeroImage(data);
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
@@ -458,4 +459,10 @@ function handleSubsectionBackgrounds() {
       subsections[i].style.minHeight = "100vh";
     }
   }
+}
+
+function handleHeroImage(data) {
+  const heroImage = document.getElementById("hero-image");
+  heroImage.src = data.profileImage;
+  console.log("heroImage", heroImage);
 }
