@@ -507,4 +507,8 @@ p {
     li {
         font-size: 1em; /* Adjust size if needed */
     }
+
+    .home-button {
+        padding: 20px;
+    }
 }
