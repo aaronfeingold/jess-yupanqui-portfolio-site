@@ -324,7 +324,7 @@ function handleAdditionalLinksButton() {
 function handleConnectButton() {
   const scrollButton = document.getElementById("connect-scroll-button");
   const linksSection = document.getElementById("links-subsection");
-  const connectSection = document.getElementById("connect-subsection");
+  const connectSection = document.getElementById("footer");
 
   // Intersection Observer to show the button when links-section is in view
   const observer = new IntersectionObserver(
