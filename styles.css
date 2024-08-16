@@ -459,8 +459,7 @@ p {
 }
 
 /* Responsive styles for mobile */
-@media screen and (min-width: 900px)
-                and (orientation: landscape) {
+@media (orientation: landscape) and (max-width: 1000px) {
 
     .hero-image img {
         width: 200px; /* Adjust size for mobile */
@@ -470,10 +469,16 @@ p {
     .hero-overlay {
         display: flex;
         flex-direction: column;
+        padding-right: 10px;
+        align-items: center;
     }
 
     .hero-section {
         flex-direction: row;
+    }
+
+    #learn-more-scroll-button {
+        max-width: 160px;
     }
 
 
