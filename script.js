@@ -27,12 +27,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const [data] = await Promise.all([fetchAndCacheData(), minDelay]);
 
     heroName.classList.remove("visible");
+    handleHeroImage(data);
+    profileImage.style.visibility = "visible"; // Show the profile image
+    profileImage.classList.add("visible");
     await delay(1000); // Adjust the delay to match the CSS transition duration
     heroName.innerText = data.profileName;
     heroName.classList.add("visible");
 
     handleMetaData(data);
-    handleHeroImage(data);
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
@@ -47,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     spinner.style.display = "none"; // Hide the spinner
     profileImage.style.opacity = "1"; // Restore the profile image opacity
     profileContentContainer.style.display = "block"; // Show the profile content
-    profileImage.style.visibility = "visible"; // Show the profile image
     imagePlaceholder.style.display = "none"; // Hide the image placeholder
   } catch (error) {
     console.error("Error fetching data:", error);
