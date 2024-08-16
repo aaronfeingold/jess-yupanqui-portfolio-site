@@ -195,6 +195,13 @@ html, body {
     margin-right: 20px;
     box-shadow: 0px 0px 17px 5px #fff;
     z-index: 2; /* Ensure it appears above the placeholder */
+    transition: filter 0.5s ease, opacity 0.5s ease;
+    filter: blur(10px);
+}
+
+.hero-image img.visible {
+    filter: blur(0);
+    opacity: 1;
 }
 
 .hero-name {
