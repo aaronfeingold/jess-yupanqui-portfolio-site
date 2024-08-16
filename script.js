@@ -1,3 +1,6 @@
+const CACHE_TIMESTAMP_KEY = "cacheTimestamp";
+const CACHE_EXPIRATION = 10 * 60 * 1000; // 10 minutes in milliseconds
+
 document.addEventListener("DOMContentLoaded", async function () {
   const spinner = document.getElementById("spinner");
   const links = document.querySelectorAll("a, button");
@@ -64,8 +67,15 @@ function handleMutationObserver(spinner, links) {
 
 async function fetchAndCacheData() {
   const cachedData = localStorage.getItem("data");
-  if (cachedData) {
-    return JSON.parse(cachedData);
+  const cacheTimestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+  const now = new Date().getTime();
+
+  if (cachedData && cacheTimestamp) {
+    const age = now - parseInt(cacheTimestamp, 10);
+    if (age < CACHE_EXPIRATION) {
+      // Use cached data
+      return JSON.parse(cachedData);
+    }
   }
 
   try {
@@ -74,6 +84,8 @@ async function fetchAndCacheData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
+    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+    localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
     localStorage.setItem("data", JSON.stringify(data));
     return data;
   } catch (error) {
