@@ -10,8 +10,11 @@ html, body {
     text-align: left;
     box-sizing: border-box;
     overflow-x: hidden;
-    background-color: #FBAB7E;
-    background-image: linear-gradient(70deg, #f35e0a 0%, #F7CE68 100%);
+    /* background-color: #FBAB7E;
+    background-image: linear-gradient(70deg, #f35e0a 0%, #F7CE68 100%); */
+    background: #00aa77;
+    background-image: url("assets/zenbg-1.png"), url("assets/zenbg-2.png");
+    background-repeat: repeat-x, repeat;
 }
 
 *, *::before, *::after {
@@ -73,9 +76,7 @@ html, body {
     position: fixed;
     top: 0;
     right: -100%;
-    background-color: #f144eb;
     padding: 20px; /* Padding around the content */
-    box-shadow: -2px 0 5px #7810aa;
     border-radius: 5px;
     transition: right 0.3s ease;
     z-index: 1001; /* Ensure it is above the nav-bar */
@@ -88,7 +89,6 @@ html, body {
 }
 
 .menu-modal-content{
-    background-color: #f144eb;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -120,7 +120,7 @@ html, body {
     width: 150px;
     height: 150px;
     animation: spin 2s linear infinite;
-    z-index: 1000; /* Make sure it's above other content */
+    z-index: 1000; /* Make sure its above other content */
 }
 
 .profile-page {
