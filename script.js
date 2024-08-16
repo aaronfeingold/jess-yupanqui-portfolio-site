@@ -84,7 +84,6 @@ async function fetchAndCacheData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
     localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
     localStorage.setItem("data", JSON.stringify(data));
     return data;
@@ -455,14 +454,12 @@ function setupContactLink(emailAddress) {
 function handleSubsectionBackgrounds() {
   const backgroundImages = ["#d29145", "#d9cbb6"];
   const subsections = document.querySelectorAll(".content-subsection");
-  console.log(subsections);
 
   for (let i = 0; i < subsections.length; i++) {
     subsections[i].style.backgroundColor =
       backgroundImages[i % backgroundImages.length];
 
     if (i === subsections.length - 1) {
-      console.log(subsections[i].style);
       subsections[i].style.height = "auto";
     } else {
       subsections[i].style.minHeight = "100vh";
@@ -473,5 +470,4 @@ function handleSubsectionBackgrounds() {
 function handleHeroImage(data) {
   const heroImage = document.getElementById("hero-image");
   heroImage.src = data.profileImage;
-  console.log("heroImage", heroImage);
 }
