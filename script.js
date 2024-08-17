@@ -106,8 +106,15 @@ async function fetchAndCacheData() {
 
 async function fetchAndCacheIconMap() {
   const cachedIconMap = localStorage.getItem("iconMap");
-  if (cachedIconMap) {
-    return JSON.parse(cachedIconMap);
+  const cacheTimestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+  const now = new Date().getTime();
+
+  if (cachedIconMap && cacheTimestamp) {
+    const age = now - parseInt(cacheTimestamp, 10);
+    if (age < CACHE_EXPIRATION) {
+      // Use cached data
+      return JSON.parse(cachedIconMap);
+    }
   }
 
   try {
@@ -116,6 +123,7 @@ async function fetchAndCacheIconMap() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const iconMap = await response.json();
+    localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
     localStorage.setItem("iconMap", JSON.stringify(iconMap));
 
     return iconMap;
