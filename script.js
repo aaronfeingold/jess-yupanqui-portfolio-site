@@ -50,6 +50,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     profileImage.style.opacity = "1"; // Restore the profile image opacity
     profileContentContainer.style.display = "block"; // Show the profile content
     imagePlaceholder.style.display = "none"; // Hide the image placeholder
+
+    document.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (href && href.charAt(0) !== "#") {
+          e.preventDefault();
+          window.open(href, "_blank"); // Open link in a new tab
+        }
+      });
+    });
   } catch (error) {
     console.error("Error fetching data:", error);
     spinner.style.display = "none"; // Hide the spinner even if there's an error
