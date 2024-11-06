@@ -214,26 +214,6 @@ function handleNavBar() {
   navBar.querySelectorAll('a[href^="#"]').forEach(addSmoothScroll);
 }
 
-function handleMetaData(data) {
-  document.getElementById("page-title").textContent = data.logoName;
-  document.getElementById("canonical-link").href = data.canonicalLink;
-
-  data.metaData.forEach((meta) => {
-    let metaElement = document.createElement("meta");
-
-    if (meta.property) {
-      metaElement.setAttribute("property", meta.property);
-    } else if (meta.itemprop) {
-      metaElement.setAttribute("itemprop", meta.itemprop);
-    } else if (meta.name) {
-      metaElement.setAttribute("name", meta.name);
-    }
-
-    metaElement.content = meta.content;
-    document.head.appendChild(metaElement);
-  });
-}
-
 function handleProfileImagePlaceholder() {
   const profileImage = document.getElementById("hero-image");
   const placeholder = document.getElementById("image-placeholder");
