@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const [data] = await Promise.all([fetchAndCacheData(), minDelay]);
 
     heroName.classList.remove('visible');
-    handleHeroImage(data);
-    heroImage.style.visibility = 'visible'; // Show the profile image
-    heroImage.classList.add('visible');
+    handleHeroImage(heroImage, data);
     await delay(1000); // Adjust the delay to match the CSS transition duration
     heroName.innerText = data.profileName;
     heroName.classList.add('visible');
@@ -461,7 +459,8 @@ function handleSubsectionBackgrounds() {
   }
 }
 
-function handleHeroImage(data) {
-  const heroImage = document.getElementById('hero-image');
+function handleHeroImage(heroImage, data) {
   heroImage.src = data.profileImage;
+  heroImage.style.visibility = 'visible'; // Show the profile image
+  heroImage.classList.add('visible');
 }
