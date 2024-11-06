@@ -1,0 +1,32 @@
+name: Lint and Format
+
+on: [push, pull_request]
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: |
+        npm install eslint stylelint prettier
+
+    - name: Run ESLint
+      run: npx eslint . --ext .js
+
+    - name: Run Stylelint
+      run: npx stylelint "**/*.css"
+
+    - name: Run Prettier
+      run: npx prettier --check "**/*.{js,css,html}"
+
+    - name: Format code with Prettier
+      run: npx prettier --write "**/*.{js,css,html}"
