@@ -5,15 +5,14 @@ document.addEventListener('DOMContentLoaded', async function () {
   const spinner = document.getElementById('spinner');
   const links = document.querySelectorAll('a, button');
   const heroName = document.getElementById('hero-name');
-  const profileImage = document.querySelector('.hero-image img');
+  const heroImage = document.querySelector('.hero-image img');
   const profileContentContainer = document.getElementById('content-section');
-  const imagePlaceholder = document.getElementById('image-placeholder');
 
   try {
     handleNavBar();
     handleSubsectionBackgrounds();
     spinner.style.display = 'block'; // Show the spinner
-    profileImage.style.opacity = '0.5'; // Dim the profile image
+    heroImage.style.opacity = '0.5'; // Dim the profile image
 
     const observer = new MutationObserver(
       handleMutationObserver(spinner, links)
@@ -28,8 +27,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     heroName.classList.remove('visible');
     handleHeroImage(data);
-    profileImage.style.visibility = 'visible'; // Show the profile image
-    profileImage.classList.add('visible');
+    heroImage.style.visibility = 'visible'; // Show the profile image
+    heroImage.classList.add('visible');
     await delay(1000); // Adjust the delay to match the CSS transition duration
     heroName.innerText = data.profileName;
     heroName.classList.add('visible');
@@ -46,9 +45,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     setupContactLink(data.emailAddress);
 
     spinner.style.display = 'none'; // Hide the spinner
-    profileImage.style.opacity = '1'; // Restore the profile image opacity
+    heroImage.style.opacity = '1'; // Restore the profile image opacity
     profileContentContainer.style.display = 'block'; // Show the profile content
-    imagePlaceholder.style.display = 'none'; // Hide the image placeholder
 
     document.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', function (e) {
@@ -215,8 +213,7 @@ function handleNavBar() {
 
 function handleProfileImagePlaceholder() {
   const profileImage = document.getElementById('hero-image');
-  const placeholder = document.getElementById('image-placeholder');
-  if (!profileImage || !placeholder) {
+  if (!profileImage) {
     console.error('Profile image or placeholder element not found.');
     return;
   }
@@ -224,7 +221,6 @@ function handleProfileImagePlaceholder() {
   // Ensure the image is hidden initially
   profileImage.style.display = 'none';
   profileImage.onload = function () {
-    placeholder.style.display = 'none';
     profileImage.style.display = 'block';
   };
 
