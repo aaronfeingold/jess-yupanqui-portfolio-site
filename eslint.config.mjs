@@ -1,8 +1,8 @@
-import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import globals from 'globals';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import js from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default [
-  ...compat.extends("eslint:recommended"),
+  ...compat.extends('eslint:recommended'),
   {
     languageOptions: {
       globals: {
@@ -21,14 +21,14 @@ export default [
       },
 
       ecmaVersion: 12,
-      sourceType: "script",
+      sourceType: 'module',
     },
 
     rules: {
-      indent: ["error", 2],
-      "linebreak-style": ["error", "unix"],
-      quotes: ["error", "single"],
-      semi: ["error", "always"],
+      indent: ['error', 2],
+      'linebreak-style': ['error', 'unix'],
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
     },
   },
 ];
