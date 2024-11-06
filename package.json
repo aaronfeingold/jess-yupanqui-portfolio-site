@@ -10,7 +10,9 @@
   },
   "scripts": {
     "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
     "lint:css": "stylelint '**/*.css'",
-    "format": "prettier --check '**/*.{js,css,html}'"
+    "format:check": "prettier --check '**/*.{js,css,html}'",
+    "format:fix": "prettier --write '**/*.{js,css,html}'"
   }
 }
