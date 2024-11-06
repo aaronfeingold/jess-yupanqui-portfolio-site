@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     profileImage.style.opacity = '0.5'; // Dim the profile image
 
     const observer = new MutationObserver(
-      handleMutationObserver(spinner, links),
+      handleMutationObserver(spinner, links)
     );
     observer.observe(spinner, {
       attributes: true,
@@ -258,7 +258,7 @@ function updateProfileSummary(data) {
     },
     {
       threshold: 1.0, // Adjust this value as needed
-    },
+    }
   );
 
   observer.observe(heroSummary);
@@ -300,7 +300,7 @@ function handleLearnMoreButton() {
 
 function handleAdditionalLinksButton() {
   const scrollButton = document.getElementById(
-    'additional-links-scroll-button',
+    'additional-links-scroll-button'
   );
   const aboutSection = document.getElementById('about-subsection');
   const linkSection = document.getElementById('links-subsection');
@@ -320,7 +320,7 @@ function handleAdditionalLinksButton() {
     },
     {
       threshold: 0.1, // Adjust as needed
-    },
+    }
   );
 
   observer.observe(aboutSection);
@@ -351,7 +351,7 @@ function handleConnectButton() {
     },
     {
       threshold: 0.1, // Adjust as needed
-    },
+    }
   );
 
   observer.observe(linksSection);
@@ -397,20 +397,20 @@ async function updateSocialMediaLinks(data) {
 
   if (!iconMap) {
     console.error(
-      'Icon map is not available. Cannot update social media links.',
+      'Icon map is not available. Cannot update social media links.'
     );
     return;
   }
 
   for (const socialLink of socialMediaLinks) {
     const iconObj = iconMap.iconList.find(
-      (iconObj) => iconObj.name === socialLink.name,
+      (iconObj) => iconObj.name === socialLink.name
     );
     if (iconObj) {
       const socialLinkElement = createSocialLink(
         socialLink.href,
         `assets/${socialLink.name}.png`,
-        iconObj.altText,
+        iconObj.altText
       );
       const listItem = document.createElement('li');
       listItem.appendChild(socialLinkElement);
