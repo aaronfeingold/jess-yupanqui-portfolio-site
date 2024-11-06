@@ -5,7 +5,7 @@ body {
   bottom: 0;
   margin: 0;
   padding: 0;
-  font-family: "futura", sans-serif;
+  font-family: futura, sans-serif;
   background-color: #d9cbb6;
   color: black;
   text-align: left;
@@ -36,7 +36,7 @@ body {
 }
 
 .nav-bar.transparent {
-  background-color: rgba(244, 208, 63, 0.5); /* Adjust transparency */
+  background-color: rgb(244 208 63 / 50%); /* Adjust transparency */
 }
 
 .nav-content {
@@ -73,7 +73,6 @@ body {
 
 .hamburger-menu {
   display: none;
-  font-size: 1.5em;
   cursor: pointer;
   position: absolute; /* Position the hamburger menu */
   right: 20px; /* Align it to the right */
@@ -91,19 +90,24 @@ body {
   border-radius: 5px;
   transition: right 0.3s ease;
   z-index: 1001; /* Ensure it is above the nav-bar */
+
   --s: 80px; /* the size */
   --c: #8a8c5e;
+  --s-size: calc(2 * var(--s)) calc(2 * var(--s));
+  --g-position: 35.36% 35.36% at;
+  --c-color: #0000 66%, #6f640e 68% 70%, #0000 72%;
 
-  --_s: calc(2 * var(--s)) calc(2 * var(--s));
-  --_g: 35.36% 35.36% at;
-  --_c: #0000 66%, #6f640e 68% 70%, #0000 72%;
   background:
-    radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s) / var(--_s),
-    radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s) / var(--_s),
-    radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0 / var(--_s),
-    radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0 / var(--_s),
-    repeating-conic-gradient(var(--c) 0 25%, #0000 0 50%) 0 0 / var(--_s),
-    radial-gradient(var(--_c)) 0 calc(var(--s) / 2) / var(--s) var(--s) var(--c);
+    radial-gradient(var(--g-position) 100% 25%, var(--c-color)) var(--s)
+      var(--s) / var(--s-size),
+    radial-gradient(var(--g-position) 0 75%, var(--c-color)) var(--s) var(--s) /
+      var(--s-size),
+    radial-gradient(var(--g-position) 100% 25%, var(--c-color)) 0 0 /
+      var(--s-size),
+    radial-gradient(var(--g-position) 0 75%, var(--c-color)) 0 0 / var(--s-size),
+    repeating-conic-gradient(var(--c) 0 25%, #0000 0 50%) 0 0 / var(--s-size),
+    radial-gradient(var(--c-color)) 0 calc(var(--s) / 2) / var(--s) var(--s)
+      var(--c);
   border-bottom-left-radius: 50px;
 }
 
@@ -192,11 +196,8 @@ body {
   border-radius: 50%;
   max-width: 800px; /* Ensure it does not exceed a reasonable size */
   height: auto; /* Maintain aspect ratio */
-  margin-top: 20px; /* Added margin to the top of the image */
-  margin-bottom: 20px; /* Added margin to the top of the image */
-  margin-left: 20px;
-  margin-right: 20px;
-  box-shadow: 0px 0px 17px 5px #fff;
+  margin: 20px; /* Added margin to the top of the image */ /* Added margin to the top of the image */
+  box-shadow: 0 0 17px 5px #fff;
   z-index: 2; /* Ensure it appears above the placeholder */
   transition:
     filter 0.5s ease,
@@ -233,13 +234,12 @@ body {
 .scroll-button {
   padding: 10px 20px;
   font-size: 16px;
-  font-family: "futura", sans-serif;
+  font-family: futura, sans-serif;
   color: #fff;
   box-shadow: 7px 9px 8px -4px #4e3314; /* Add shadow */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   opacity: 0; /* Initially hide the button */
   transition: opacity 1s ease-in-out; /* Smooth transition for visibility */
   background-image: linear-gradient(225deg, #136a8a 0%, #267871 100%);
@@ -292,10 +292,10 @@ ul {
   margin: 0 0 20px;
 }
 
-/* TODO: refactor, DRY*/
+/* TODO: refactor, DRY */
 
 #about-content li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: -10px; /* Position bullet point relative to the text */
   font-size: 1.2em; /* Adjust size if needed */
@@ -304,7 +304,7 @@ ul {
 }
 
 #links-list li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: -10px; /* Position bullet point relative to the text */
   font-size: 1.2em; /* Adjust size if needed */
@@ -343,14 +343,12 @@ p {
   color: white;
 }
 
-#links-list li::before {
-  color: white;
-}
 #links-list li a:hover {
   color: #0363b7; /* Gold color on hover */
 }
+
 #links-list li a {
-  color: white; /* Gold color*/
+  color: white; /* Gold color */
 }
 
 .flex-container {
@@ -367,6 +365,7 @@ p {
   align-items: center;
   gap: 10px; /* Adjust the gap between items */
 }
+
 /* Style for the email button */
 #email-contact {
   padding: 10px 20px;
@@ -377,10 +376,12 @@ p {
   box-shadow: 7px 9px 8px -4px #4e3314; /* Add shadow */
   border: none;
 }
+
 /* Style for the social media icons */
 #connect-list li {
   list-style-type: none;
 }
+
 #connect-list img {
   list-style-type: none;
   max-width: 100px;
@@ -415,7 +416,7 @@ p {
 
 #contact-anchors-list ul li::before {
   list-style-type: none;
-  content: ""; /* Use custom bullet point */
+  content: ''; /* Use custom bullet point */
   position: absolute;
   font-size: 1.2em; /* Adjust size if needed */
   color: white; /* Set bullet color */
@@ -461,13 +462,14 @@ p {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
 /* Responsive styles for mobile */
-@media (orientation: landscape) and (max-width: 1000px) {
+@media (orientation: landscape) and (width <= 1000px) {
   .hero-image img {
     width: 200px; /* Adjust size for mobile */
     height: 200px; /* Adjust size for mobile */
@@ -488,7 +490,8 @@ p {
     max-width: 160px;
   }
 }
-@media (max-width: 600px) {
+
+@media (width <= 600px) {
   .hero-name {
     font-size: 1.5em; /* Smaller font size for mobile */
   }
@@ -544,9 +547,6 @@ p {
   }
 
   .home-button {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px;
   }
 }
