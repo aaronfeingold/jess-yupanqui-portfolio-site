@@ -3,15 +3,7 @@
 This project is a simple yet elegant profile page designed for individual portfolios. The profile page includes key elements such as a profile image, about section, various links, and social media links. The content is dynamically populated using data from a JSON file, making it easy to update and customize for different clients.
 
 ### Tech Stack
-- HTML: Used for the structure of the profile page.
-- CSS: Used for styling the profile page to ensure it is visually appealing and responsive.
-- JavaScript: Used for dynamically populating the content on the profile page from a JSON file.
-- JSON: Used to store data such as profile information, links, and social media URLs.
-### Files
-- index.html: The main HTML file that defines the structure of the profile page.
-- styles.css: The CSS file that contains styles for the profile page, ensuring it is responsive and visually appealing.
-- script.js: The JavaScript file that fetches data from a JSON file and dynamically populates the profile page with the retrieved information.
-- assets: A directory containing images and other assets used in the profile page.
+- Vanilla JS with HTML and CSS
 
 ### Usage
 1. *Clone the Repository*
@@ -23,8 +15,6 @@ python -m http.server
 ```
 
 ### Future Enhancements
-- *SEO Optimization*: Further improve SEO elements, including meta tags, keywords, and structured data.
-- *Backend Integration*: Integrate a backend to handle dynamic data fetching and user authentication.
 - *Additional Features*: Add features such as a blog section, portfolio gallery, and contact form.
 
 ### Contributing
@@ -34,5 +24,4 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 This project is licensed under the MIT License.
 
 ### Acknowledgements
-Thanks to all contributors and supporters of this project.
 Special thanks to Jess Yupanqui Feingold for providing the profile data used in this template.
