@@ -7,5 +7,10 @@
     "prettier": "^3.3.3",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1"
+  },
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint:css": "stylelint '**/*.css'",
+    "format": "prettier --check '**/*.{js,css,html}'"
   }
 }
