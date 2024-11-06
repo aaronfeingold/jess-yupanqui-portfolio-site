@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     heroName.innerText = data.profileName;
     heroName.classList.add("visible");
 
-    handleMetaData(data);
     handleProfileImagePlaceholder();
     updateProfileSummary(data);
     appendUnderConstructionMessage(data);
